@@ -1,11 +1,13 @@
-from openai import OpenAI
+from openai import OpenAI, AsyncOpenAI
+from openai.helpers import LocalAudioPlayer
+-6
 import os
 
 speaker_tone = os.getenv("speaker_tone")
 debater_tone = os.getenv("debater_tone")
 
-async def tts(tone: str, input: str) -> None:
-    async with openai.audio.speech.with_streaming_response.create(
+async def tts(async_client: AsyncOpenAI, tone: str, input: str) -> None:
+    async with async_client.audio.speech.with_streaming_response.create(
         model="gpt-4o-mini-tts",
         voice="alloy",
         input=input,
@@ -28,7 +30,7 @@ class Debater:
         self.client = OpenAI(api_key=api_key)
         self.motion = motion
 
-    def respond(self, prompt: str) -> str:
+    def respond_to(self, prompt: str) -> str:
         response = self.client.chat.completions.create(
             model="o1-mini",
             messages=[
@@ -37,19 +39,19 @@ class Debater:
         )
         return response.choices[0].message.content
         
-class PrimeMinister(Debater):
-    def __init__(self, api_key, motion):
-        super().__init__(api_key, motion)
-        self.prompt = prime_minister_speech
+# class PrimeMinister(Debater):
+#     def __init__(self, api_key, motion):
+#         super().__init__(api_key, motion)
+#         self.prompt = prime_minister_speech
         
-    def respond(self, prompt=None) -> str:
-        response = self.client.chat.completions.create(
-            model="o1-mini",
-            messages=[
-                {"role": "user", "content": self.prompt.format(motion=self.motion) + "\n\n"}
-            ]
-        )
-        return response.choices[0].message.content
+#     def respond(self, prompt=None) -> str:
+#         response = self.client.chat.completions.create(
+#             model="o1-mini",
+#             messages=[
+#                 {"role": "user", "content": self.prompt.format(motion=self.motion) + "\n\n"}
+#             ]
+#         )
+#         return response.choices[0].message.content
         
     
         
@@ -70,8 +72,8 @@ Speak clearly, passionately, and naturally—avoid sounding robotic or overly fo
 Use natural pauses, variations in pace, and genuine emotion.
 Sound approachable yet authoritative and convincing, like a trusted leader rallying others around an important cause.
 
-Now you are going to start your speech, the motion is: {motion}
-""".format(motion=self.motion)
+Now you are going to start your speech, the motion is:
+"""
 
 leader_of_opposition_speech="""
 🎤 Leader of Opposition Speech Generator Prompt (Humanized BP Format)
@@ -90,7 +92,7 @@ Tone & Delivery Tips:
 Be clear, passionate, and relatable—talk naturally, avoiding overly formal or robotic language.
 Use natural pauses, variations in pace, and genuine emotion to emphasize important points.
 Balance critique with constructive clarity, sounding like a responsible and thoughtful voice of reason.
-""".format(motion=self.motion)
+"""
 
 deputy_prime_minister_speech="""
 **🎤 Deputy Prime Minister Speech Generator Prompt (Humanized BP Format)**
@@ -135,7 +137,7 @@ Conclude authentically and persuasively: "At the end of the day, our policy is c
 - Speak naturally, passionately, and clearly—avoid overly formal or robotic language.
 - Use genuine emotion, appropriate pacing, and natural pauses for emphasis.
 - Project confidence, authority, and a collaborative spirit that reinforces your team's position clearly and convincingly.
-""".format(motion=self.motion)
+"""
 
 deputy_leader_of_opposition_speech="""
 **🎤 Deputy Leader of Opposition Speech Generator Prompt (Humanized BP Format)**
@@ -181,7 +183,7 @@ End authentically and persuasively: "Ultimately, rejecting this policy matters i
 - Use genuine emotion, appropriate pacing, and natural pauses for emphasis.
 - Balance strong critique with clear, thoughtful analysis, demonstrating confidence and credibility.
 
-""".format(motion=self.motion)
+"""
 
 member_of_government_speech="""
 **🎤 Member of Government Speech Generator Prompt (Humanized BP Format)**
@@ -224,7 +226,7 @@ End authentically and persuasively: "Ultimately, the strength and necessity of o
 - Use genuine emotion, appropriate pacing, and natural pauses to emphasize key points.
 - Clearly differentiate your speech by offering fresh, unique insights while reinforcing your team's overall strategy convincingly.
 
-""".format(motion=self.motion)
+"""
 
 member_of_opposition_speech="""
 **🎤 Member of Opposition Speech Generator Prompt (Humanized BP Format)**
@@ -267,7 +269,7 @@ End authentically and persuasively: "Ultimately, rejecting this policy remains v
 - Use genuine emotion, appropriate pacing, and natural pauses to emphasize key points.
 - Clearly differentiate your speech by offering fresh, unique insights while consistently reinforcing your team's strategic objections.
 
-""".format(motion=self.motion)
+"""
 
 government_whip_speech="""
 **🎤 Government Whip Speech Generator Prompt (Humanized BP Format)**
@@ -307,7 +309,7 @@ End with clarity, confidence, and genuine passion: "Ultimately, our policy clear
 - Use genuine emotion, effective pacing, and natural pauses to strongly emphasize key summaries and rebuttals.
 - Demonstrate strategic clarity and finality, convincingly framing your team's arguments as the winning perspective.
 
-""".format(motion=self.motion)
+"""
 
 opposition_whip_speech="""
 **🎤 Opposition Whip Speech Generator Prompt (Humanized BP Format)**
@@ -347,6 +349,6 @@ End clearly, confidently, and authentically: "Ultimately, rejecting this policy 
 - Use genuine emotion, effective pacing, and natural pauses to strongly emphasize key summaries and rebuttals.
 - Convey strategic clarity and decisiveness, convincingly presenting your team's arguments as the winning and responsible choice.
 
-""".format(motion=self.motion)
+"""
 
     
