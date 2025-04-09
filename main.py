@@ -20,6 +20,7 @@ def main(motion: str) -> None:
     speech_log = []
 
     asyncio.run(speaker.announce_motion())
+    asyncio.run(speaker.start_debate())
 
     for i in range(len(speaker.speaking_order) - 1):
         asyncio.run(speaker.announce_next_speaker(speaker.speaking_order[i], speaker.speaking_order[i + 1]))

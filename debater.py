@@ -40,8 +40,9 @@ def stt(client: OpenAI, audio_file: str) -> str:
     )
     return transcription.text
 
-def prompt_loader(prompt: str) -> str:
-    pass
+def prompt_loader(motion: str) -> str:
+    final_prompt = 
+    return final_prompt
     
 
 class Debater:
@@ -69,6 +70,11 @@ class Speaker():
     async def announce_motion(self) -> None:
         # TODO: make it more natural and use llm to generate the texts here.
         text = "Ladies and gentlemen, welcome to this debate. The motion reads: {motion}, now you have 1 minute to read the motion and then you will have 15 minutes for prep time.".format(motion=self.motion)
+        await tts(async_client=self.client, tone=self.speaker_tone, input=text)
+
+    async def start_debate(self) -> None:
+        # TODO: make it more natural and use llm to generate the texts here.
+        text = "Ladies and gentlemen, the prep time is over. Now let's welcome the Prime Minister to deliver his speech, hear hear."
         await tts(async_client=self.client, tone=self.speaker_tone, input=text)
 
     async def announce_next_speaker(self, current_speaker_position: str, next_speaker_position: str) -> None:
