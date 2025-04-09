@@ -19,8 +19,13 @@ def main(motion: str) -> None:
     speaker = debater.Speaker(openai, motion, speaker_tone)
     speech_log = []
 
-    speaker.announce_motion()
+    asyncio.run(speaker.announce_motion())
 
+    for i in range(len(speaker.speaking_order) - 1):
+        asyncio.run(speaker.announce_next_speaker(speaker.speaking_order[i], speaker.speaking_order[i + 1]))
+    asyncio.run(speaker.announce_end())
+
+    
 
 
 

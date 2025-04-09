@@ -66,20 +66,20 @@ class Speaker():
         self.speaking_order = ["Prime Minister", "Leader of Opposition", "Deputy Prime Minister", "Deputy Leader of Opposition", "Member of Government", "Member of Opposition", "Government Whip", "Opposition Whip"]
 
         
-    def announce_motion(self, async_client: OpenAI) -> None:
+    async def announce_motion(self) -> None:
         # TODO: make it more natural and use llm to generate the texts here.
         text = "Ladies and gentlemen, welcome to this debate. The motion reads: {motion}, now you have 1 minute to read the motion and then you will have 15 minutes for prep time.".format(motion=self.motion)
-        asyncio.run(tts(async_client=async_client, tone=self.speaker_tone, input=text))
+        await tts(async_client=self.client, tone=self.speaker_tone, input=text)
 
-    def announce_next_speaker(self, async_client: OpenAI, current_speaker_position: str, next_speaker_position: str) -> None:
+    async def announce_next_speaker(self, current_speaker_position: str, next_speaker_position: str) -> None:
         # TODO: make it more natural and use llm to generate the texts here.
         text = "Thank you {} for that very fine speech, now let's welcome {} to deliver his speech, hear hear.".format(current_speaker_position, next_speaker_position)
-        asyncio.run(tts(async_client=async_client, tone=self.speaker_tone, input=text))
+        await tts(async_client=self.client, tone=self.speaker_tone, input=text)
 
-    def announce_end(self, async_client: OpenAI) -> None:
+    async def announce_end(self) -> None:
         # TODO: make it more natural and use llm to generate the texts here.
         text = "Thank you all for your speeches, please wait for the results."     
-        asyncio.run(tts(async_client=async_client, tone=self.speaker_tone, input=text))
+        await tts(async_client=self.client, tone=self.speaker_tone, input=text)
 
 # class PrimeMinister(Debater):
 #     def __init__(self, api_key, motion):
