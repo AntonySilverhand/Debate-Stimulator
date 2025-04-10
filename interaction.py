@@ -34,7 +34,7 @@ class Interaction:
     def openai_stt(self, audio_file: str) -> str:
         audio_file = open(audio_file, "rb")
         transcription = self.client.audio.transcriptions.create(
-            model="gpt-4o-transcribe", 
+            model="gpt-4o-mini-transcribe", 
             file=audio_file,
             response_format="text"
         )
