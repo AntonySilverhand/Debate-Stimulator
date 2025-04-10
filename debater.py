@@ -7,7 +7,6 @@ import asyncio
 
 load_dotenv()
 
-speaker_tone = os.getenv("speaker_tone")
 debater_tone = os.getenv("debater_tone")
 
 speaker_with_prompt = [
@@ -22,28 +21,9 @@ speaker_with_prompt = [
 ]
 
 
-async def tts(async_client: AsyncOpenAI, tone: str, input: str) -> None:
-    async with async_client.audio.speech.with_streaming_response.create(
-        model="gpt-4o-mini-tts",
-        voice="alloy",
-        input=input,
-        instructions=tone,
-        response_format="wav",
-    ) as response:
-        await LocalAudioPlayer().play(response)
-
-def stt(client: OpenAI, audio_file: str) -> str:
-    audio_file= open(audio_file, "rb")
-    transcription = client.audio.transcriptions.create(
-        model="gpt-4o-mini-transcribe", 
-        file=audio_file
-    )
-    return transcription.text
-
 def load_prompt(motion: str, position: str) -> str:
     final_prompt = speaker_with_prompt[position][1][0] + "\n\n" + motion
     return final_prompt
-    
 
 class Debater:
     def __init__(self, client: OpenAI, motion: str):
@@ -59,46 +39,6 @@ class Debater:
         )
         return response.choices[0].message.content
 
-class Speaker():
-    def __init__(self, client: OpenAI, motion: str, speaker_tone: str):
-        self.client = client
-        self.motion = motion
-        self.speaker_tone = speaker_tone
-        self.speaking_order = ["Prime Minister", "Leader of Opposition", "Deputy Prime Minister", "Deputy Leader of Opposition", "Member of Government", "Member of Opposition", "Government Whip", "Opposition Whip"]
 
-        
-    async def announce_motion(self) -> None:
-        # TODO: make it more natural and use llm to generate the texts here.
-        text = "Ladies and gentlemen, welcome to this debate. The motion reads: {motion}, now you have 1 minute to read the motion and then you will have 15 minutes for prep time.".format(motion=self.motion)
-        await tts(async_client=self.client, tone=self.speaker_tone, input=text)
 
-    async def start_debate(self) -> None:
-        # TODO: make it more natural and use llm to generate the texts here.
-        text = "Ladies and gentlemen, the prep time is over. Now let's welcome the Prime Minister to deliver his speech, hear hear."
-        await tts(async_client=self.client, tone=self.speaker_tone, input=text)
 
-    async def announce_next_speaker(self, current_speaker_position: str, next_speaker_position: str) -> None:
-        # TODO: make it more natural and use llm to generate the texts here.
-        text = "Thank you {} for that very fine speech, now let's welcome {} to deliver his speech, hear hear.".format(current_speaker_position, next_speaker_position)
-        await tts(async_client=self.client, tone=self.speaker_tone, input=text)
-
-    async def announce_end(self) -> None:
-        # TODO: make it more natural and use llm to generate the texts here.
-        text = "Thank you all for your speeches, please wait for the results."     
-        await tts(async_client=self.client, tone=self.speaker_tone, input=text)
-
-# class PrimeMinister(Debater):
-#     def __init__(self, api_key, motion):
-#         super().__init__(api_key, motion)
-#         self.prompt = prime_minister_speech
-        
-#     def respond(self, prompt=None) -> str:
-#         response = self.client.chat.completions.create(
-#             model="o1-mini",
-#             messages=[
-#                 {"role": "user", "content": self.prompt.format(motion=self.motion) + "\n\n"}
-#             ]
-#         )
-#         return response.choices[0].message.content
-        
-    
