@@ -40,8 +40,8 @@ def stt(client: OpenAI, audio_file: str) -> str:
     )
     return transcription.text
 
-def prompt_loader(motion: str) -> str:
-    final_prompt = 
+def load_prompt(motion: str, position: str) -> str:
+    final_prompt = speaker_with_prompt[position][1][0] + "\n\n" + motion
     return final_prompt
     
 
