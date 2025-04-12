@@ -15,37 +15,39 @@ Currently it only supports openai.
 
 
 class Interaction:
-    def __init__(self):
-        # For TTS
-        self.openai = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-        # For STT
-        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    def __init__(self, service=os.getenv("INTERACTION_PROVIDER")):
+        self.service = service
 
-    def tts(self, service: str, tone: str, input: str) -> None:
-        if service == "openai":
-            return self.openai_tts(tone=tone, input=input)
+    async def tts(self, tone: str, input: str) -> None:
+        if self.service == "openai":
+            return await self.openai_tts(tone=tone, input=input)
         else:
             raise ValueError("Invalid service")
 
-    def stt(self, service: str, audio_file: str) -> str:
-        if service == "openai":
+    def stt(self, audio_file: str) -> str:
+        if self.service == "openai":
             return self.openai_stt(audio_file=audio_file)
         else:
             raise ValueError("Invalid service")
 
     async def openai_tts(self, tone: str, input: str) -> None:
-        async with self.openai.audio.speech.with_streaming_response.create(
+        # For TTS
+        openai = AsyncOpenAI(api_key=os.getenv("INTERACTION_KEY"))
+        
+        async with openai.audio.speech.with_streaming_response.create(
             model="gpt-4o-mini-tts",
             voice="coral",
             input=input,
             instructions=tone,
-            response_format="pcm",
+            response_format="wav",
         ) as response:
             await LocalAudioPlayer().play(response)
 
     def openai_stt(self, audio_file: str) -> str:
+        # For STT
+        client = OpenAI(api_key=os.getenv("INTERACTION_KEY"))
         audio_file = open(audio_file, "rb")
-        transcription = self.client.audio.transcriptions.create(
+        transcription = client.audio.transcriptions.create(
             model="gpt-4o-mini-transcribe", 
             file=audio_file,
             response_format="text"

@@ -16,7 +16,7 @@ Wether the response is used for Speaker or Debater should be defined in main.py 
 """
 
 class Responder:
-    def __init__(self, service: str):
+    def __init__(self, service: str = os.getenv("INDIVIDUAL_AI_PROVIDER")):
         self.service = service
 
     def respond_to(self, model: str, message: str) -> str:
@@ -26,7 +26,7 @@ class Responder:
             raise ValueError("Invalid service")
 
     def openai_respond_to(self, model: str, message: str) -> str:
-        client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        client = OpenAI(api_key=os.getenv("INDIVIDUAL_AI_KEY"))
         response = client.chat.completions.create(
             model=model,
             messages=[
