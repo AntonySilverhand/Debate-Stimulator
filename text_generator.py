@@ -19,16 +19,31 @@ class Responder:
     def __init__(self, service: str = os.getenv("INDIVIDUAL_AI_PROVIDER")):
         self.service = service
 
-    def respond_to(self, model: str, message: str) -> str:
+    def respond_to(self,message: str) -> str:
         if self.service == "openai":
-            return self.openai_respond_to(model, message)
+            return self.openai_respond_to(message)
+        elif self.service == "openrouter":
+            return self.openrouter_respond_to(message)
         else:
             raise ValueError("Invalid service")
 
-    def openai_respond_to(self, model: str, message: str) -> str:
-        client = OpenAI(api_key=os.getenv("INDIVIDUAL_AI_KEY"))
+    def openai_respond_to(self, message: str) -> str:
+        client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
         response = client.chat.completions.create(
-            model=model,
+            model=os.getenv("INDIVIDUAL_AI_MODEL"),
+            messages=[
+                {"role": "user", "content": message}
+            ]
+        )
+        return response.choices[0].message.content
+
+    def openrouter_respond_to(self, message: str) -> str:
+        client = OpenAI(
+            base_url="https://openrouter.ai/api/v1",
+            api_key=os.getenv("OPENROUTER_API_KEY"),
+        )
+        response = client.chat.completions.create(
+            model=os.getenv("INDIVIDUAL_AI_MODEL"),
             messages=[
                 {"role": "user", "content": message}
             ]
@@ -38,7 +53,7 @@ class Responder:
 
 if __name__ == "__main__":
     responder = Responder()
-    print(responder.respond_to(model="o1-mini", message="Hello, how are you?"))
+    print(responder.respond_to("Hello, how are you?"))
 
 
 
