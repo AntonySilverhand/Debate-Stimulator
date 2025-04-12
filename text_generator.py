@@ -37,7 +37,7 @@ class Responder:
 
 
 if __name__ == "__main__":
-    responder = Responder(service="openai")
+    responder = Responder()
     print(responder.respond_to(model="o1-mini", message="Hello, how are you?"))
 
 

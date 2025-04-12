@@ -1,23 +1,21 @@
 import os
-from dotenv import load_dotenv
-import debater_speech_structure
 import asyncio
 from text_generator import Responder
 from interaction import Interaction
 
 
-#        text = "Ladies and gentlemen, welcome to this debate. The motion reads: {motion}, now you have 1 minute to read the motion and then you will have 15 minutes for prep time.".format(motion=self.motion)
-#        text = "Ladies and gentlemen, the prep time is over. Now let's welcome the Prime Minister to deliver his speech, hear hear."
-#        text = "Thank you {} for that very fine speech, now let's welcome {} to deliver his speech, hear hear.".format(current_speaker_position, next_speaker_position)
-#        text = "Thank you all for your speeches, please wait for the results."     
+# text = "Ladies and gentlemen, welcome to this debate. The motion reads: {motion}, now you have 1 minute to read the motion and then you will have 15 minutes for prep time.".format(motion=self.motion)
+# text = "Ladies and gentlemen, the prep time is over. Now let's welcome the Prime Minister to deliver his speech, hear hear."
+# text = "Thank you {} for that very fine speech, now let's welcome {} to deliver his speech, hear hear.".format(current_speaker_position, next_speaker_position)
+# text = "Thank you all for your speeches, please wait for the results."     
 
 
 
 
 class Speaker():
-    def __init__(self, motion: str, responder_provider: str = "openai", interaction_provider: str = "openai"):
-        self.responder = Responder(service=responder_provider)
-        self.interaction = Interaction(service=interaction_provider)
+    def __init__(self, motion: str):
+        self.responder = Responder()
+        self.interaction = Interaction()
         self.motion = motion
         self.speaking_order = ["Prime Minister", "Leader of Opposition", "Deputy Prime Minister", "Deputy Leader of Opposition", "Member of Government", "Member of Opposition", "Government Whip", "Opposition Whip"]
         self.speaker_tone = os.getenv("speaker_tone")
@@ -40,7 +38,7 @@ class Speaker():
 
 
 if __name__ == "__main__":
-    speaker = Speaker(motion="This house would legalize marijuana.", responder_provider="openai", interaction_provider="openai")
+    speaker = Speaker(motion="This house would legalize marijuana.")
     asyncio.run(speaker.announce_motion())
     asyncio.run(speaker.start_debate())
     for i in range(len(speaker.speaking_order) - 1):
