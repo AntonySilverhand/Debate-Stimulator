@@ -15,14 +15,20 @@ The message should be passed as a string and be loaded with being passed in.
 Wether the response is used for Speaker or Debater should be defined in main.py instead of here.
 """
 
-class OpenAI_Responder:
-    def __init__(self, model: str, api_key: str):
-        self.client = OpenAI(api_key=api_key)
-        self.model = model
+class Responder:
+    def __init__(self, service: str):
+        self.service = service
 
-    def respond_to(self, message: str) -> str:
-        response = self.client.chat.completions.create(
-            model=self.model,
+    def respond_to(self, model: str, message: str) -> str:
+        if self.service == "openai":
+            return self.openai_respond_to(model, message)
+        else:
+            raise ValueError("Invalid service")
+
+    def openai_respond_to(self, model: str, message: str) -> str:
+        client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        response = client.chat.completions.create(
+            model=model,
             messages=[
                 {"role": "user", "content": message}
             ]
@@ -31,8 +37,8 @@ class OpenAI_Responder:
 
 
 if __name__ == "__main__":
-    responder = OpenAI_Responder(model="o1-mini", api_key=os.getenv("OPENAI_API_KEY"))
-    print(responder.respond_to("Hello, how are you?"))
+    responder = Responder(service="openai")
+    print(responder.respond_to(model="o1-mini", message="Hello, how are you?"))
 
 
 

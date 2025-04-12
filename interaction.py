@@ -21,6 +21,18 @@ class Interaction:
         # For STT
         self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+    def tts(self, service: str, tone: str, input: str) -> None:
+        if service == "openai":
+            return self.openai_tts(tone=tone, input=input)
+        else:
+            raise ValueError("Invalid service")
+
+    def stt(self, service: str, audio_file: str) -> str:
+        if service == "openai":
+            return self.openai_stt(audio_file=audio_file)
+        else:
+            raise ValueError("Invalid service")
+
     async def openai_tts(self, tone: str, input: str) -> None:
         async with self.openai.audio.speech.with_streaming_response.create(
             model="gpt-4o-mini-tts",
