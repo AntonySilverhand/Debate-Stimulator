@@ -6,6 +6,11 @@ from dotenv import load_dotenv
 import asyncio
 import debater
 import speech_structure
+from team_brainstorm import BrainStormer
+
+
+
+
 
 
 
@@ -18,8 +23,20 @@ def main(motion: str) -> None:
 
     speaker = debater.Speaker(openai, motion, speaker_tone)
     speech_log = []
+    brainstormer = BrainStormer()
 
     asyncio.run(speaker.announce_motion())
+
+    teams = ["Opening Government", "Opening Opposition", "Closing Government", "Closing Opposition"]
+
+    # Brainstorm TODO: refine this async function
+    tasks = []
+    for team in teams:
+        task = asyncio.create_task(brainstormer.brain_storm(motion, team))
+        tasks.append(task)
+    
+    asyncio.run(asyncio.gather(*tasks))
+
     asyncio.run(speaker.start_debate())
 
     for i in range(len(speaker.speaking_order) - 1):
