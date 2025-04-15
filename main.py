@@ -14,7 +14,7 @@ from team_brainstorm import BrainStormer
 
 
 
-def main(motion: str) -> None:
+async def main(motion: str) -> None:
     load_dotenv()
     api_key = os.getenv("OPENAI_API_KEY")
     speaker_tone = os.getenv("speaker_tone")
@@ -25,23 +25,23 @@ def main(motion: str) -> None:
     speech_log = []
     brainstormer = BrainStormer()
 
-    asyncio.run(speaker.announce_motion())
+    await speaker.announce_motion()
 
     teams = ["Opening Government", "Opening Opposition", "Closing Government", "Closing Opposition"]
 
-    # Brainstorm TODO: refine this async function
+    # Brainstorm for all teams concurrently
     tasks = []
     for team in teams:
-        task = asyncio.create_task(brainstormer.brain_storm(motion, team))
+        task = brainstormer.brain_storm(motion, team)
         tasks.append(task)
     
-    asyncio.run(asyncio.gather(*tasks))
+    await asyncio.gather(*tasks)
 
-    asyncio.run(speaker.start_debate())
+    await speaker.start_debate()
 
     for i in range(len(speaker.speaking_order) - 1):
-        asyncio.run(speaker.announce_next_speaker(speaker.speaking_order[i], speaker.speaking_order[i + 1]))
-    asyncio.run(speaker.announce_end())
+        await speaker.announce_next_speaker(speaker.speaking_order[i], speaker.speaking_order[i + 1])
+    await speaker.announce_end()
 
     
 
@@ -52,4 +52,4 @@ def main(motion: str) -> None:
 
 if __name__ == "__main__":
     motion = "This house would legalize marijuana."
-    main(motion)
+    asyncio.run(main(motion))
