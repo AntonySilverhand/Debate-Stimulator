@@ -36,6 +36,12 @@ async def main(motion: str) -> None:
         tasks.append(task)
     
     await asyncio.gather(*tasks)
+    brainstorm_results = [result for result in tasks]
+
+    OG_clue = brainstorm_results[0]
+    OO_clue = brainstorm_results[1]
+    CG_clue = brainstorm_results[2]
+    CO_clue = brainstorm_results[3]
 
     await speaker.start_debate()
 

@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 import speech_structure
 import asyncio
-from text_generator import OpenAI_Responder
+from text_generator import Responder
 
 load_dotenv()
 
@@ -29,7 +29,7 @@ speaker_with_prompt = [
 ]
 
 
-def prompt_loader(motion: str, position: str, speech_log: list) -> str:
+def prompt_loader(motion: str, position: str, speech_log: list, clue: str) -> str:
     """
     This function is to structure the final_prompt to be passed in the text generator.
     
@@ -43,20 +43,21 @@ def prompt_loader(motion: str, position: str, speech_log: list) -> str:
 
     TODO: The Prime Minister has no previous speaker, this should be optimized.
     """
-    final_prompt = speaker_with_prompt[position][1][0] + "\n\n" + "The motion reads: " + motion + "\n\n" + "The previous speakers conversation: " + speech_log
+    final_prompt = speaker_with_prompt[position][1][0] + "\n\n" + "The motion reads: " + motion + "\n\n" + "The previous speakers conversation: " + speech_log +"\n\n" + "Here are the clues you've prepared: " + "\n\n" + clue
     return final_prompt
 
 class Debater:
-    def __init__(self, client: OpenAI, motion: str, position: str, speech_log: list):
+    def __init__(self, client: OpenAI, motion: str, position: str, speech_log: list, clue: str):
         self.client = client
         self.motion = motion
         self.position = position
         self.speech_log = speech_log
+        self.clue = clue
+        self.responder = Responder()
 
     def _respond_to(self, prompt: str) -> str:
-        responder = OpenAI_Responder(model="o1-mini", api_key=os.getenv("OPENAI_API_KEY"))
-        final_prompt = prompt_loader(self.motion, self.position, self.speech_log)
-        response = responder.respond_to(final_prompt)
+        final_prompt = prompt_loader(self.motion, self.position, self.speech_log, self.clue)
+        response = self.responder.respond_to(final_prompt)
         return response
 
 
