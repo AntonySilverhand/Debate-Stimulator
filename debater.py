@@ -18,14 +18,14 @@ There should be one def prompt_loader() that uses a general way of combining the
 debater_tone = os.getenv("debater_tone")
 
 speaker_with_prompt = [
-    ["Prime Minister", [speech_structure.prime_minister_speech, debater_tone]],
-    ["Leader of Opposition", [speech_structure.leader_of_opposition_speech, debater_tone]],
-    ["Deputy Prime Minister", [speech_structure.deputy_prime_minister_speech, debater_tone]],
-    ["Deputy Leader of Opposition", [speech_structure.deputy_leader_of_opposition_speech, debater_tone]],
-    ["Member of Government", [speech_structure.member_of_government_speech, debater_tone]],
-    ["Member of Opposition", [speech_structure.member_of_opposition_speech, debater_tone]],
-    ["Government Whip", [speech_structure.government_whip_speech, debater_tone]],
-    ["Opposition Whip", [speech_structure.opposition_whip_speech, debater_tone]]
+    ["Prime Minister", [speech_structure.prime_minister_speech, debater_tone], "OG"],
+    ["Leader of Opposition", [speech_structure.leader_of_opposition_speech, debater_tone], "OO"],
+    ["Deputy Prime Minister", [speech_structure.deputy_prime_minister_speech, debater_tone], "OG"],
+    ["Deputy Leader of Opposition", [speech_structure.deputy_leader_of_opposition_speech, debater_tone], "OO"],
+    ["Member of Government", [speech_structure.member_of_government_speech, debater_tone], "CG"],
+    ["Member of Opposition", [speech_structure.member_of_opposition_speech, debater_tone], "CO"],
+    ["Government Whip", [speech_structure.government_whip_speech, debater_tone], "CG"],
+    ["Opposition Whip", [speech_structure.opposition_whip_speech, debater_tone], "CO"]
 ]
 
 
@@ -47,7 +47,7 @@ def prompt_loader(motion: str, position: str, speech_log: list, clue: str) -> st
     return final_prompt
 
 class Debater:
-    def __init__(self, client: OpenAI, motion: str, position: str, speech_log: list, clue: str):
+    def __init__(self, client: OpenAI, motion: str, position: str, speech_log: list, clue: dict[str, str]):
         self.client = client
         self.motion = motion
         self.position = position
@@ -55,8 +55,19 @@ class Debater:
         self.clue = clue
         self.responder = Responder()
 
-    def _respond_to(self, prompt: str) -> str:
-        final_prompt = prompt_loader(self.motion, self.position, self.speech_log, self.clue)
+    def deliver_speech(self) -> str:
+        # Find the team for the current position
+        debaterTeam = None
+        for speaker in speaker_with_prompt:
+            if speaker[0] == self.position:
+                debaterTeam = speaker[2]
+                break
+        
+        if debaterTeam is None:
+            raise ValueError(f"Unknown position: {self.position}")
+            
+        clue = self.clue[debaterTeam]
+        final_prompt = prompt_loader(self.motion, self.position, self.speech_log, clue)
         response = self.responder.respond_to(final_prompt)
         return response
 

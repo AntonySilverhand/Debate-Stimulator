@@ -1,12 +1,8 @@
 import asyncio
 
-from openai import AsyncOpenAI, OpenAI
-import os
 from dotenv import load_dotenv
-import asyncio
-import debater
-import speech_structure
 from team_brainstorm import BrainStormer
+from speaker import Speaker
 
 
 
@@ -16,18 +12,14 @@ from team_brainstorm import BrainStormer
 
 async def main(motion: str) -> None:
     load_dotenv()
-    api_key = os.getenv("OPENAI_API_KEY")
-    speaker_tone = os.getenv("speaker_tone")
-    openai = AsyncOpenAI(api_key=api_key)
-    client = OpenAI(api_key=api_key)
-
-    speaker = debater.Speaker(openai, motion, speaker_tone)
+    speaker = Speaker(motion)
     speech_log = []
     brainstormer = BrainStormer()
 
     await speaker.announce_motion()
 
     teams = ["Opening Government", "Opening Opposition", "Closing Government", "Closing Opposition"]
+    speaking_order = speaker.speaking_order
 
     # Brainstorm for all teams concurrently
     tasks = []
@@ -36,17 +28,14 @@ async def main(motion: str) -> None:
         tasks.append(task)
     
     await asyncio.gather(*tasks)
-    brainstorm_results = [result for result in tasks]
+    clue = [result for result in tasks]
 
-    OG_clue = brainstorm_results[0]
-    OO_clue = brainstorm_results[1]
-    CG_clue = brainstorm_results[2]
-    CO_clue = brainstorm_results[3]
+    clue = {"OG": clue[0], "OO": clue[1], "CG": clue[2], "CO": clue[3]}
 
     await speaker.start_debate()
 
-    for i in range(len(speaker.speaking_order) - 1):
-        await speaker.announce_next_speaker(speaker.speaking_order[i], speaker.speaking_order[i + 1])
+    for i in range(len(speaking_order) - 1):
+        await speaker.announce_next_speaker(speaking_order[i], speaking_order[i + 1])
     await speaker.announce_end()
 
     
