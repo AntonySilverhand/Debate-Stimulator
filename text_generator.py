@@ -13,6 +13,8 @@ It is designed to respond to only one message, so system message and message his
 The message should be passed as a string and be loaded with being passed in.
 
 Wether the response is used for Speaker or Debater should be defined in main.py instead of here.
+
+TODO: Resturture to suit the response provider of team_brainstorm.py
 """
 
 class Responder:

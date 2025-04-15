@@ -1,6 +1,7 @@
 from openai import OpenAI
 import os
 from dotenv import load_dotenv
+from text_generator import Responder
 
 # Make sure to load environment variables
 load_dotenv()
@@ -8,6 +9,7 @@ load_dotenv()
 """
 This file is for generating group discussion of each team.
 We use thinking models to stimulate the process and result of group discussion during prep time.
+TODO: Restructure and use text_generator to provide texts.
 """
 
 class BrainStormer:
