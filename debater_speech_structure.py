@@ -15,7 +15,9 @@ Speak clearly, passionately, and naturally—avoid sounding robotic or overly fo
 Use natural pauses, variations in pace, and genuine emotion.
 Sound approachable yet authoritative and convincing, like a trusted leader rallying others around an important cause.
 
-Now you are going to start your speech, the motion is:
+You have no previous speaker, so ignore the speech list provided bellow.
+
+Now you are going to start your speech to open up the debate, the motion is:
 """
 
 leader_of_opposition_speech="""
