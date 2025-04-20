@@ -1,0 +1,89 @@
+2025-04-21 02:41:44 [DEBUG] asyncio: Using selector: EpollSelector
+2025-04-21 02:41:44 [DEBUG] __main__: Environment variables loaded
+2025-04-21 02:41:44 [INFO] __main__: Starting debate with motion: This house would legalize marijuana.
+2025-04-21 02:41:44 [DEBUG] __main__: Speaker initialized
+2025-04-21 02:41:44 [DEBUG] __main__: BrainStormer initialized
+2025-04-21 02:41:44 [DEBUG] openai._base_client: Request options: {'method': 'post', 'url': '/audio/speech', 'headers': {'Accept': 'application/octet-stream', 'X-Stainless-Raw-Response': 'stream'}, 'files': None, 'json_data': {'input': 'Ladies and gentlemen, welcome to this debate. The motion reads: This house would legalize marijuana., now you have 1 minute to read the motion and then you will have 15 minutes for prep time.', 'model': 'gpt-4o-mini-tts', 'voice': 'coral', 'instructions': 'Speak as the impassioned Speaker of a British Parliamentary debate. Your voice is loud, sharp, and crystal clear. Speak with urgency and weight—every syllable rings with purpose. Your tone is formal but electrified, carrying deep belief in the power of discourse and democracy. Project absolute authority. Keep a fast, punchy rhythm, with dramatic pauses when needed. Let your passion for order, fairness, and spirited debate pour through your voice—never flat, never dull. You are not just keeping order—you are breathing life into the chamber.', 'response_format': 'wav'}}
+2025-04-21 02:41:44 [DEBUG] httpcore.socks: connect_tcp.started host='127.0.0.1' port=10808 timeout=5.0
+2025-04-21 02:41:44 [DEBUG] httpcore.socks: connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f817b9018d0>
+2025-04-21 02:41:44 [DEBUG] httpcore.socks: setup_socks5_connection.started stream=<httpcore._backends.anyio.AnyIOStream object at 0x7f817b9018d0> host='api.openai.com' port=443 auth=None
+2025-04-21 02:41:44 [DEBUG] httpcore.socks: setup_socks5_connection.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f817b9018d0>
+2025-04-21 02:41:44 [DEBUG] httpcore.socks: start_tls.started ssl_context=<ssl.SSLContext object at 0x7f8185d891c0> server_hostname='api.openai.com' timeout=5.0
+2025-04-21 02:41:45 [DEBUG] httpcore.socks: start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f8187daa850>
+2025-04-21 02:41:45 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2025-04-21 02:41:45 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-04-21 02:41:45 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2025-04-21 02:41:45 [DEBUG] httpcore.http11: send_request_body.complete
+2025-04-21 02:41:45 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2025-04-21 02:41:46 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 20 Apr 2025 18:41:46 GMT'), (b'Content-Type', b'audio/wav'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'none-briod9'), (b'openai-processing-ms', b'469'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199952'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'14ms'), (b'x-request-id', b'req_ffada67e6a4e80d62a7cd2b40b1b8928'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=MiSG69lOaQBXfHn6M1mxQ6XkkqTeXLt2rgi4.5En5io-1745174506-1.0.1.1-1cmGufaZG0XVZtphjjHsrWZszgCzb6NDU4eahRD9LAm4GohK58pvJefw8zriNi25nGYqDUKjKFu0ZBSGOO7B3iL1yZ7Vl0uK4X7kwhOKQTw; path=/; expires=Sun, 20-Apr-25 19:11:46 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=Jn8XhgWlDiK4cyEDvK.3_MysTa1LKw20QqvTlYViqTg-1745174506317-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9336c714292d01d9-LAX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-04-21 02:41:46 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/audio/speech "HTTP/1.1 200 OK"
+2025-04-21 02:41:46 [DEBUG] openai._base_client: HTTP Request: POST https://api.openai.com/v1/audio/speech "200 OK"
+2025-04-21 02:41:46 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2025-04-21 02:41:48 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-04-21 02:41:48 [DEBUG] httpcore.http11: response_closed.started
+2025-04-21 02:41:48 [DEBUG] httpcore.http11: response_closed.complete
+2025-04-21 02:42:03 [INFO] __main__: Motion announced
+2025-04-21 02:42:04 [DEBUG] openai._base_client: Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'user', 'content': 'You are a professional debater, now you are in a debate, the motion is This house would legalize marijuana., and you are now going to brainstorm for the Opening Opposition team, you should provide motion analysis, possible arguments, and possible arguments from other teams and counter arguments. Think as many arguments as possible for your team, always reason as detailly as possible.'}], 'model': 'google/gemini-2.5-pro-preview-03-25'}}
+2025-04-21 02:42:04 [DEBUG] openai._base_client: Sending HTTP Request: POST https://openrouter.ai/api/v1/chat/completions
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: connect_tcp.started host='127.0.0.1' port=10808 timeout=5.0
+2025-04-21 02:42:04 [DEBUG] openai._base_client: Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'user', 'content': 'You are a professional debater, now you are in a debate, the motion is This house would legalize marijuana., and you are now going to brainstorm for the Opening Government team, you should provide motion analysis, possible arguments, and possible arguments from other teams and counter arguments. Think as many arguments as possible for your team, always reason as detailly as possible.'}], 'model': 'google/gemini-2.5-pro-preview-03-25'}}
+2025-04-21 02:42:04 [DEBUG] openai._base_client: Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'user', 'content': 'You are a professional debater, now you are in a debate, the motion is This house would legalize marijuana., and you are now going to brainstorm for the Closing Opposition team, you should provide motion analysis, possible arguments, and possible arguments from other teams and counter arguments. Think as many arguments as possible for your team, always reason as detailly as possible.'}], 'model': 'google/gemini-2.5-pro-preview-03-25'}}
+2025-04-21 02:42:04 [DEBUG] openai._base_client: Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'user', 'content': 'You are a professional debater, now you are in a debate, the motion is This house would legalize marijuana., and you are now going to brainstorm for the Closing Government team, you should provide motion analysis, possible arguments, and possible arguments from other teams and counter arguments. Think as many arguments as possible for your team, always reason as detailly as possible.'}], 'model': 'google/gemini-2.5-pro-preview-03-25'}}
+2025-04-21 02:42:04 [DEBUG] openai._base_client: Sending HTTP Request: POST https://openrouter.ai/api/v1/chat/completions
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f817b997fd0>
+2025-04-21 02:42:04 [DEBUG] openai._base_client: Sending HTTP Request: POST https://openrouter.ai/api/v1/chat/completions
+2025-04-21 02:42:04 [DEBUG] openai._base_client: Sending HTTP Request: POST https://openrouter.ai/api/v1/chat/completions
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: connect_tcp.started host='127.0.0.1' port=10808 timeout=5.0
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: setup_socks5_connection.started stream=<httpcore._backends.sync.SyncStream object at 0x7f817b997fd0> host='openrouter.ai' port=443 auth=None
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: connect_tcp.started host='127.0.0.1' port=10808 timeout=5.0
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f817b95f190>
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: setup_socks5_connection.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f817b997fd0>
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: connect_tcp.started host='127.0.0.1' port=10808 timeout=5.0
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f817b9b6550>
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: setup_socks5_connection.started stream=<httpcore._backends.sync.SyncStream object at 0x7f817b9b6550> host='openrouter.ai' port=443 auth=None
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: setup_socks5_connection.started stream=<httpcore._backends.sync.SyncStream object at 0x7f817b95f190> host='openrouter.ai' port=443 auth=None
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: start_tls.started ssl_context=<ssl.SSLContext object at 0x7f8185d8b530> server_hostname='openrouter.ai' timeout=5.0
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f817b9b74d0>
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: setup_socks5_connection.started stream=<httpcore._backends.sync.SyncStream object at 0x7f817b9b74d0> host='openrouter.ai' port=443 auth=None
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: setup_socks5_connection.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f817b9b6550>
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: start_tls.started ssl_context=<ssl.SSLContext object at 0x7f8185d8b4a0> server_hostname='openrouter.ai' timeout=5.0
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: setup_socks5_connection.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f817b95f190>
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: start_tls.started ssl_context=<ssl.SSLContext object at 0x7f8185d8b650> server_hostname='openrouter.ai' timeout=5.0
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: setup_socks5_connection.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f817b9b74d0>
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: start_tls.started ssl_context=<ssl.SSLContext object at 0x7f8185d8b5c0> server_hostname='openrouter.ai' timeout=5.0
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f817b95d950>
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_body.complete
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f817b95ed10>
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_body.complete
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f817b998090>
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_body.complete
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2025-04-21 02:42:04 [DEBUG] httpcore.socks: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f817b9b7690>
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: send_request_body.complete
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 20 Apr 2025 18:42:04 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Access-Control-Allow-Origin', b'*'), (b'x-clerk-auth-message', b'Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid, token-carrier=header)'), (b'x-clerk-auth-reason', b'token-invalid'), (b'x-clerk-auth-status', b'signed-out'), (b'Vary', b'Accept-Encoding'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9336c78b6d47cb9e-LAX'), (b'Content-Encoding', b'gzip')])
+2025-04-21 02:42:04 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-21 02:42:04 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2025-04-21 02:42:05 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 20 Apr 2025 18:42:04 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Access-Control-Allow-Origin', b'*'), (b'x-clerk-auth-message', b'Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid, token-carrier=header)'), (b'x-clerk-auth-reason', b'token-invalid'), (b'x-clerk-auth-status', b'signed-out'), (b'Vary', b'Accept-Encoding'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9336c78b59987bdf-LAX'), (b'Content-Encoding', b'gzip')])
+2025-04-21 02:42:05 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-21 02:42:05 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2025-04-21 02:42:05 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 20 Apr 2025 18:42:04 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Access-Control-Allow-Origin', b'*'), (b'x-clerk-auth-message', b'Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid, token-carrier=header)'), (b'x-clerk-auth-reason', b'token-invalid'), (b'x-clerk-auth-status', b'signed-out'), (b'Vary', b'Accept-Encoding'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9336c78b7ecc08c4-LAX'), (b'Content-Encoding', b'gzip')])
+2025-04-21 02:42:05 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-21 02:42:05 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2025-04-21 02:42:05 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 20 Apr 2025 18:42:04 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Access-Control-Allow-Origin', b'*'), (b'x-clerk-auth-message', b'Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid, token-carrier=header)'), (b'x-clerk-auth-reason', b'token-invalid'), (b'x-clerk-auth-status', b'signed-out'), (b'Vary', b'Accept-Encoding'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9336c78bfc897bfb-LAX'), (b'Content-Encoding', b'gzip')])
+2025-04-21 02:42:05 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-21 02:42:05 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>

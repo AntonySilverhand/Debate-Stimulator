@@ -2,7 +2,7 @@ from openai import OpenAI, AsyncOpenAI
 from openai.helpers import LocalAudioPlayer
 import os
 from dotenv import load_dotenv
-import speech_structure
+import debater_speech_structure
 import asyncio
 from text_generator import Responder
 
@@ -18,14 +18,14 @@ There should be one def prompt_loader() that uses a general way of combining the
 debater_tone = os.getenv("debater_tone")
 
 speaker_with_prompt = [
-    ["Prime Minister", [speech_structure.prime_minister_speech, debater_tone], "OG"],
-    ["Leader of Opposition", [speech_structure.leader_of_opposition_speech, debater_tone], "OO"],
-    ["Deputy Prime Minister", [speech_structure.deputy_prime_minister_speech, debater_tone], "OG"],
-    ["Deputy Leader of Opposition", [speech_structure.deputy_leader_of_opposition_speech, debater_tone], "OO"],
-    ["Member of Government", [speech_structure.member_of_government_speech, debater_tone], "CG"],
-    ["Member of Opposition", [speech_structure.member_of_opposition_speech, debater_tone], "CO"],
-    ["Government Whip", [speech_structure.government_whip_speech, debater_tone], "CG"],
-    ["Opposition Whip", [speech_structure.opposition_whip_speech, debater_tone], "CO"]
+    ["Prime Minister", [debater_speech_structure.prime_minister_speech, debater_tone], "OG"],
+    ["Leader of Opposition", [debater_speech_structure.leader_of_opposition_speech, debater_tone], "OO"],
+    ["Deputy Prime Minister", [debater_speech_structure.deputy_prime_minister_speech, debater_tone], "OG"],
+    ["Deputy Leader of Opposition", [debater_speech_structure.deputy_leader_of_opposition_speech, debater_tone], "OO"],
+    ["Member of Government", [debater_speech_structure.member_of_government_speech, debater_tone], "CG"],
+    ["Member of Opposition", [debater_speech_structure.member_of_opposition_speech, debater_tone], "CO"],
+    ["Government Whip", [debater_speech_structure.government_whip_speech, debater_tone], "CG"],
+    ["Opposition Whip", [debater_speech_structure.opposition_whip_speech, debater_tone], "CO"]
 ]
 
 
@@ -43,12 +43,26 @@ def prompt_loader(motion: str, position: str, speech_log: list, clue: str) -> st
 
     TODO: The Prime Minister has no previous speaker, this should be optimized.
     """
-    final_prompt = speaker_with_prompt[position][1][0] + "\n\n" + "The motion reads: " + motion + "\n\n" + "The previous speakers conversation: " + speech_log +"\n\n" + "Here are the clues you've prepared: " + "\n\n" + clue
+    # find the speech template based on position
+    speech_template = None
+    for speaker in speaker_with_prompt:
+        if speaker[0] == position:
+            speech_template = speaker[1][0]
+            break
+    if speech_template is None:
+        raise ValueError(f"Unknown position in prompt_loader: {position}")
+    # format speech_log as string
+    speech_log_text = "\n".join(speech_log) if isinstance(speech_log, list) else str(speech_log)
+    final_prompt = (
+        f"{speech_template}\n\n"
+        f"The motion reads: {motion}\n\n"
+        f"The previous speakers conversation: {speech_log_text}\n\n"
+        f"Here are the clues you've prepared:\n\n{clue}"
+    )
     return final_prompt
 
 class Debater:
-    def __init__(self, client: OpenAI, motion: str, position: str, speech_log: list, clue: dict[str, str]):
-        self.client = client
+    def __init__(self, motion: str, position: str, speech_log: list, clue: dict[str, str]):
         self.motion = motion
         self.position = position
         self.speech_log = speech_log
@@ -72,5 +86,7 @@ class Debater:
         return response
 
 
-
+if __name__ == "__main__":
+    debater = Debater(motion="THBT civil rights movement should use violanve to advance its cause", position="Prime Minister", speech_log=[], clue={"OG": "", "OO": "", "CG": "", "CO": ""})
+    print(debater.deliver_speech())
 
