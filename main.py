@@ -39,6 +39,8 @@ async def main(motion: str) -> None:
     speech_log = []
     brainstormer = BrainStormer()
     logger.debug("BrainStormer initialized")
+    interaction = Interaction()
+    logger.debug("Interaction initialized")
 
     await speaker.announce_motion()
     logger.info("Motion announced")
@@ -82,7 +84,10 @@ async def main(motion: str) -> None:
         next_role = debaters[idx + 1][0] if idx + 1 < len(debaters) else None
         logger.info(f"{role} is delivering speech")
         speech = debater_obj.deliver_speech()
-        await interaction.tts(tone=os.getenv("debater_tone"), input=speech)
+        try:
+            await interaction.tts(tone=os.getenv("debater_tone"), input=speech)
+        except Exception as e:
+            logger.error(f"TTS failed for {role}: {e}", exc_info=True)
         speech_log.append(speech)
         logger.debug(f"{role} speech generated, length={len(speech)}")
         logger.debug(f"{role} speech content:\n{speech}")

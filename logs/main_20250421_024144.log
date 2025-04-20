@@ -87,3 +87,414 @@
 2025-04-21 02:42:05 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 20 Apr 2025 18:42:04 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Access-Control-Allow-Origin', b'*'), (b'x-clerk-auth-message', b'Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid, token-carrier=header)'), (b'x-clerk-auth-reason', b'token-invalid'), (b'x-clerk-auth-status', b'signed-out'), (b'Vary', b'Accept-Encoding'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9336c78bfc897bfb-LAX'), (b'Content-Encoding', b'gzip')])
 2025-04-21 02:42:05 [INFO] httpx: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
 2025-04-21 02:42:05 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2025-04-21 02:43:23 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-04-21 02:43:23 [DEBUG] httpcore.http11: response_closed.started
+2025-04-21 02:43:23 [DEBUG] httpcore.http11: response_closed.complete
+2025-04-21 02:43:23 [DEBUG] openai._base_client: HTTP Response: POST https://openrouter.ai/api/v1/chat/completions "200 OK" Headers({'date': 'Sun, 20 Apr 2025 18:42:04 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-allow-origin': '*', 'x-clerk-auth-message': 'Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid, token-carrier=header)', 'x-clerk-auth-reason': 'token-invalid', 'x-clerk-auth-status': 'signed-out', 'vary': 'Accept-Encoding', 'server': 'cloudflare', 'cf-ray': '9336c78b6d47cb9e-LAX', 'content-encoding': 'gzip'})
+2025-04-21 02:43:23 [DEBUG] openai._base_client: request_id: None
+2025-04-21 02:43:24 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-04-21 02:43:24 [DEBUG] httpcore.http11: response_closed.started
+2025-04-21 02:43:24 [DEBUG] httpcore.http11: response_closed.complete
+2025-04-21 02:43:24 [DEBUG] openai._base_client: HTTP Response: POST https://openrouter.ai/api/v1/chat/completions "200 OK" Headers({'date': 'Sun, 20 Apr 2025 18:42:04 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-allow-origin': '*', 'x-clerk-auth-message': 'Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid, token-carrier=header)', 'x-clerk-auth-reason': 'token-invalid', 'x-clerk-auth-status': 'signed-out', 'vary': 'Accept-Encoding', 'server': 'cloudflare', 'cf-ray': '9336c78b7ecc08c4-LAX', 'content-encoding': 'gzip'})
+2025-04-21 02:43:24 [DEBUG] openai._base_client: request_id: None
+2025-04-21 02:43:38 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-04-21 02:43:38 [DEBUG] httpcore.http11: response_closed.started
+2025-04-21 02:43:38 [DEBUG] httpcore.http11: response_closed.complete
+2025-04-21 02:43:38 [DEBUG] openai._base_client: HTTP Response: POST https://openrouter.ai/api/v1/chat/completions "200 OK" Headers({'date': 'Sun, 20 Apr 2025 18:42:04 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-allow-origin': '*', 'x-clerk-auth-message': 'Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid, token-carrier=header)', 'x-clerk-auth-reason': 'token-invalid', 'x-clerk-auth-status': 'signed-out', 'vary': 'Accept-Encoding', 'server': 'cloudflare', 'cf-ray': '9336c78b59987bdf-LAX', 'content-encoding': 'gzip'})
+2025-04-21 02:43:38 [DEBUG] openai._base_client: request_id: None
+2025-04-21 02:43:43 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-04-21 02:43:43 [DEBUG] httpcore.http11: response_closed.started
+2025-04-21 02:43:43 [DEBUG] httpcore.http11: response_closed.complete
+2025-04-21 02:43:43 [DEBUG] openai._base_client: HTTP Response: POST https://openrouter.ai/api/v1/chat/completions "200 OK" Headers({'date': 'Sun, 20 Apr 2025 18:42:04 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-allow-origin': '*', 'x-clerk-auth-message': 'Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid, token-carrier=header)', 'x-clerk-auth-reason': 'token-invalid', 'x-clerk-auth-status': 'signed-out', 'vary': 'Accept-Encoding', 'server': 'cloudflare', 'cf-ray': '9336c78bfc897bfb-LAX', 'content-encoding': 'gzip'})
+2025-04-21 02:43:43 [DEBUG] openai._base_client: request_id: None
+2025-04-21 02:43:43 [INFO] __main__: Brainstorming tasks completed
+2025-04-21 02:43:43 [DEBUG] __main__: Team brainstorming outputs:
+2025-04-21 02:43:43 [DEBUG] __main__: Opening Government output:
+Okay, let's break down the motion "This house would legalize marijuana" for the Opening Government (OG) team.
+
+**Motion Analysis**
+
+1.  **Keywords:**
+    *   **"Legalize":** This is the core action. It means moving marijuana from the category of illegal substances to legal ones. Crucially, this implies more than just *decriminalization* (removing criminal penalties for possession of small amounts). Legalization means establishing a legal framework for production, distribution, sale, taxation, and consumption. It inherently involves **regulation**.
+    *   **"Marijuana":** Refers to cannabis, encompassing various forms (flower, edibles, concentrates, etc.). The motion likely implies recreational use, as medicinal marijuana is already legal or decriminalized in many jurisdictions. OG should probably clarify they are primarily focused on establishing a **regulated recreational market**, possibly building upon existing medicinal frameworks.
+    *   **"This house":** In a standard debate context, this refers to the government or decision-making body being simulated. Often assumed to be a generic liberal democratic state, unless context implies otherwise. Assume a context where alcohol and tobacco are legal but regulated.
+
+2.  **Scope and Burden of Proof (What OG needs to do):**
+    *   OG needs to demonstrate that the *benefits* of legalizing and regulating marijuana outweigh the *harms* of the current system (prohibition) AND any potential new harms introduced by legalization.
+    *   OG should propose a plausible *type* of legalization model – not necessarily a detailed bill, but the principles behind it (e.g., regulated market similar to alcohol, age restrictions, quality control, taxation).
+    *   OG needs to establish the *problem* with the status quo (prohibition's failures) and show how legalization is the *solution*.
+
+3.  **The Status Quo (Implicit):** Marijuana is currently illegal for recreational use. This leads to:
+    *   An unregulated, untaxed black market controlled by criminal elements.
+    *   Significant state expenditure on enforcement (police, courts, prisons).
+    *   Criminal records for users, often with disproportionate impacts on certain communities.
+    *   Lack of quality control and consumer safety information.
+    *   Potential health risks being addressed through a criminal rather than public health lens.
+
+**Opening Government Arguments (Pro-Legalization)**
+
+Here’s a range of arguments, from core principles to specific impacts:
+
+1.  **Principle: Individual Liberty and Autonomy**
+    *   **Argument:** Competent adults should have the right to make choices about their own bodies and consumption, provided they do not unduly harm others. Banning marijuana infringes on this autonomy.
+    *   **Reasoning:** The state's role should not be overly paternalistic. If adults can choose to consume alcohol or tobacco, which carry significant health risks, preventing them from using marijuana (arguably less harmful in certain aspects) is inconsistent and an overreach of state power. The potential harms of marijuana use do not justify a complete ban infringing on liberty, especially when regulation can mitigate many risks.
+
+2.  **Failure of Prohibition & Rise of Criminal Justice Reform**
+    *   **Argument:** The "War on Drugs," specifically regarding marijuana, has demonstrably failed. It hasn't eradicated use, but has created immense social and economic costs.
+    *   **Reasoning:**
+        *   *(Ineffectiveness):* Despite decades of prohibition and billions spent, marijuana remains widely available and used. Prohibition doesn't stop use; it just drives it underground.
+        *   *(Social Injustice):* Enforcement of marijuana laws disproportionately affects minority communities and low-income individuals, leading to higher arrest and incarceration rates for these groups despite similar rates of use across demographics. This creates cycles of poverty and disadvantage due to criminal records affecting employment, housing, and education. Legalization ends this specific avenue of systemic injustice.
+        *   *(Resource Drain):* Vast amounts of public resources (police time, court resources, prison space) are consumed enforcing marijuana laws. Legalization frees up these resources to focus on more serious crimes (e.g., violent crime, trafficking of genuinely dangerous substances).
+
+3.  **Economic Benefits**
+    *   **Argument:** Legalization creates significant economic opportunities through taxation, job creation, and shifting funds away from illicit markets.
+    *   **Reasoning:**
+        *   *(Tax Revenue):* Governments can levy excise taxes and sales taxes on legal marijuana products. This revenue can be substantial (as seen in Colorado, California, Canada) and can be earmarked for public services like education, healthcare, infrastructure, or addiction treatment programs. This is revenue currently lost to the black market.
+        *   *(Job Creation):* A legal marijuana industry requires jobs across the supply chain: cultivation, processing, distribution, retail, testing, regulation, marketing (within strict limits). This boosts employment and economic activity.
+        *   *(Undermining the Black Market):* A legal, regulated market competes directly with the illicit market. While it may not eliminate it entirely (especially if taxes are too high), it significantly reduces its size, profitability, and associated violence. This cuts off a major funding source for organized crime.
+
+4.  **Public Health and Safety Improvement through Regulation**
+    *   **Argument:** Legalization allows for regulation, which enhances public health and safety compared to the dangers of an unregulated black market.
+    *   **Reasoning:**
+        *   *(Quality Control & Consumer Safety):* Legal products can be tested for potency (THC/CBD levels), purity (pesticides, mold, contaminants). Consumers know what they are getting. Black market products have unknown potency and potential dangerous adulterants. Edibles can have standardized dosages.
+        *   *(Age Restrictions):* A legal framework establishes and enforces strict age limits (e.g., 18 or 21), making it potentially *harder* for minors to access than from dealers who don't check ID. Licensed retailers have strong incentives (losing their license) to comply.
+        *   *(Harm Reduction & Education):* Legalization allows for open discussion and public health campaigns about responsible use, potential risks, and harm reduction strategies (e.g., warnings about impaired driving, interactions). Tax revenue can fund these initiatives and treatment programs for Cannabis Use Disorder, treating it as a health issue, not a crime.
+        *   *(Reduced Harm Compared to Legal Alternatives):* Comparatively, marijuana poses fewer acute health risks than alcohol (e.g., fatal overdose is virtually impossible with marijuana, alcohol poisoning is common; links between alcohol and violence are stronger). It's inconsistent to ban marijuana while allowing alcohol.
+
+5.  **Facilitating Medical Use and Research**
+    *   **Argument:** While focused on recreational, broader legalization destigmatizes cannabis and can remove barriers to legitimate medical use and scientific research.
+    *   **Reasoning:** Even where medical marijuana is legal, prohibition creates stigma and logistical hurdles. Full legalization normalizes cannabis, potentially making doctors more comfortable discussing it, patients less hesitant to seek it, and removing federal barriers (in places like the US) that hamper large-scale clinical research into its therapeutic potential.
+
+**Possible Opposition Arguments and Counter-Arguments (Pre-computation/Pre-buttal)**
+
+OG should anticipate these arguments and briefly address them or frame their case to mitigate them:
+
+1.  **Opposition Argument:** Increased Public Health Risks (Addiction, Mental Health, Youth Use, Impaired Driving).
+    *   **OG Counter:**
+        *   *(Addiction/CUD):* Rates are lower than alcohol/tobacco. Regulation allows *treatment* funded by taxes, unlike prohibition which hides the problem.
+        *   *(Mental Health):* Correlation vs. causation is complex. Prohibition doesn't stop use among vulnerable people; regulation allows open discussion, risk warnings, potency control, and support.
+        *   *(Youth Use):* Evidence from legal states is mixed/contested, but many show *no significant increase* or even decreases. Regulation aims to *restrict* youth access more effectively than the black market. Focus on strong regulatory enforcement.
+        *   *(Impaired Driving):* This is a serious concern, but it's *already illegal* to drive impaired by *any* substance. Legalization allows for dedicated funding (from taxes) for better detection methods, enforcement, and public awareness campaigns, similar to alcohol. Prohibition doesn't stop DUID.
+
+2.  **Opposition Argument:** "Gateway Drug" Theory.
+    *   **OG Counter:** This theory is largely discredited by evidence. Correlation is often linked to social factors (access through illicit dealers who also sell other drugs) rather than cannabis itself. Legalization *separates* the marijuana market from harder drugs. Alcohol and tobacco could equally be considered "gateways."
+
+3.  **Opposition Argument:** Normalization Leading to Widespread Problems / Unforeseen Consequences.
+    *   **OG Counter:** We are normalizing *regulation* and *responsible adult use*, not abuse. Compare to alcohol – most users are responsible. Regulation allows us to manage the societal integration of marijuana proactively, learning from mistakes made with alcohol and tobacco (e.g., strict advertising limits). The "unforeseen consequences" of *prohibition* are well-documented and severe (crime, injustice, cost).
+
+4.  **Opposition Argument:** The Black Market Will Persist.
+    *   **OG Counter:** It likely won't disappear overnight, especially if taxes are too high or regulations too cumbersome. However, a legal market offering tested, safe, convenient products will significantly *erode* the black market's share and power over time, reducing associated crime and violence. This is a marked improvement over the status quo where the black market has 100% control.
+
+5.  **Opposition Argument:** Rise of "Big Marijuana" (like Big Tobacco).
+    *   **OG Counter:** This is a valid concern, which is precisely why *strong regulation* is key. We can implement measures like advertising bans, plain packaging, market share caps, and restrictions on lobbying to prevent undue corporate influence and predatory practices. We must learn from past regulatory failures with other industries.
+
+**Strategy for OG Speech**
+
+*   **Frame:** Frame the debate as moving from a failed, harmful system (prohibition) to a sensible, regulated approach that maximizes benefits while mitigating harms. Emphasize control, safety, justice, and revenue.
+*   **Prioritize:** Focus on the strongest arguments: failure of prohibition/social justice, economic benefits, and public health through regulation. The liberty argument is good but sometimes less persuasive to judges focused on concrete impacts.
+*   **Mechanism:** Clearly state the *type* of regulated market being proposed (age limits, licensing, testing, taxes).
+*   **Comparative:** Constantly compare the proposed world (legalization) with the status quo (prohibition). Highlight the harms *caused* by prohibition. Use comparisons to alcohol/tobacco regulation where favourable.
+*   **Pre-emption:** Briefly acknowledge potential downsides (like impaired driving) but immediately explain how regulation is the best way to *manage* these risks, unlike prohibition which ignores or exacerbates them.
+
+By structuring the case around these points and anticipating the Opposition, the Opening Government can present a strong, principled, and practical case for legalizing marijuana.
+2025-04-21 02:43:43 [DEBUG] __main__: Opening Opposition output:
+Okay, let's get into debate mode. As the Opening Opposition (OO) for the motion "This House Would Legalize Marijuana," our primary goal is to establish the significant harms and unmanageable risks associated with legalization, thereby proving that the status quo (or alternative, less drastic measures like decriminalization) is preferable.
+
+Here’s a breakdown for the OO team:
+
+**1. Motion Analysis:**
+
+*   **"Legalize":** This isn't just decriminalization (removing criminal penalties for possession). It implies creating a legal framework for production, distribution, sale, and possession of marijuana for recreational use. This likely involves regulation, taxation, age limits, quality control, licensing, etc., akin to alcohol or tobacco. We must attack this *specific model* of commercial availability and state sanctioning.
+*   **"Marijuana":** Refers to cannabis and its psychoactive compounds (primarily THC). This includes various forms: flower, edibles, concentrates, vapes, etc., each potentially having different risk profiles. The potency of legally available products is a key point.
+*   **The Burden:** The Government (Proposition) must prove that the *benefits* of shifting from the current legal status (likely prohibition or limited medical use/decriminalization depending on context) to *full legalization* outweigh the harms. Our burden is to demonstrate that legalization introduces unacceptable risks and harms, or that the purported benefits are illusory or achievable through less risky means.
+*   **Key Battlegrounds:** Public Health, Social Costs, Economic Impacts, Youth Impact, Criminal Justice (counter-narrative), Regulatory Capacity.
+
+**2. Possible Opening Opposition Arguments (Against Legalization):**
+
+Here are detailed arguments, aiming for depth and potential impact:
+
+*   **Argument 1: Public Health Crisis Escalation**
+    *   **Mechanism:** Legalization inevitably increases accessibility, affordability (potentially, despite taxes), and social acceptability/normalization of marijuana use. This directly leads to higher rates of consumption across the population.
+    *   **Impacts:**
+        *   **Increased Addiction (Cannabis Use Disorder - CUD):** Marijuana is addictive for a significant minority of users (often cited around 9-10% of users, higher for adolescent starters). Legalization expands the pool of users, thus increasing the absolute number of people suffering from CUD, straining mental health services and causing individual suffering.
+        *   **Mental Health Deterioration:** Strong scientific links exist between marijuana use (especially high-potency THC and adolescent use) and increased risk of psychosis, schizophrenia, depression, anxiety disorders, and suicidal ideation. Legalization risks exacerbating the existing mental health crisis.
+        *   **Cognitive & Developmental Impairment:** Particularly concerning for adolescents and young adults (brain development continues into mid-20s). Regular use is linked to impaired memory, attention, learning, and potentially long-term IQ reduction in adolescent starters. Legalization, even with age gates, inevitably increases youth exposure and potential use through diversion and normalization.
+        *   **Physical Health Harms:** Smoking *anything* introduces carcinogens and harms respiratory health. Vaping carries its own risks (EVALI). Edibles, while avoiding smoke inhalation, pose risks of overdose/acute psychiatric events due to delayed onset and variable dosing. Increased prevalence means increased population exposure to these harms.
+        *   **Higher Potency Products:** The legal market, driven by profit motives, often trends towards higher potency THC products (concentrates, certain strains) which research suggests carry significantly higher risks for addiction and adverse mental health outcomes compared to lower-potency marijuana common decades ago. Regulation may struggle to effectively cap potency against industry pressure.
+
+*   **Argument 2: Exacerbation of Social Harms & Costs**
+    *   **Mechanism:** Increased prevalence and normalization of marijuana use spills over into various social spheres, creating negative externalities.
+    *   **Impacts:**
+        *   **Impaired Driving:** Marijuana significantly impairs reaction time, coordination, and judgment needed for driving. Legalization consistently correlates with increases in cannabis-involved traffic accidents and fatalities in jurisdictions that have adopted it. Testing for marijuana impairment is far less reliable and standardized than alcohol breathalyzers, making enforcement difficult and roads less safe.
+        *   **Workplace Safety & Productivity:** Increased use leads to higher rates of impairment on the job, posing risks in safety-sensitive industries (construction, transport, healthcare) and reducing overall economic productivity through absenteeism and reduced performance.
+        *   **Strain on Public Services:** Increased healthcare costs (treating CUD, mental health issues, accidents, respiratory problems), increased demand on social services, potential need for enhanced enforcement (DUIs, public consumption). These costs can rapidly offset or exceed projected tax revenues.
+        *   **Normalization & Gateway Concerns:** Legalization sends a powerful societal message that marijuana use is acceptable and safe, potentially lowering perceived risk, especially among youth. While the "gateway drug" theory is debated, normalization can certainly lower barriers to experimenting with other substances. It fundamentally shifts societal norms around recreational drug use.
+        *   **Disproportionate Impact:** Potential harms (health, social, economic) may disproportionately affect vulnerable populations, including low-income communities, those with pre-existing mental health conditions, and youth, potentially widening existing inequalities.
+
+*   **Argument 3: The Illusion of Economic Benefit & Rise of "Big Marijuana"**
+    *   **Mechanism:** The economic arguments presented by the Government (tax revenue, job creation, reduced enforcement costs) are often overestimated and ignore significant countervailing costs and negative economic consequences.
+    *   **Impacts:**
+        *   **Hidden Costs Outweigh Revenue:** As outlined above, increased healthcare expenditures, costs associated with accidents, productivity losses, and regulatory bureaucracy often meet or exceed tax revenues generated. Governments become reliant on revenue from a substance that causes public harm, creating perverse incentives.
+        *   **Persistence of the Black Market:** High taxes and strict regulations (necessary to mitigate some harms) can make legal marijuana significantly more expensive than illicit sources, ensuring the black market continues to thrive, particularly for price-sensitive consumers. This undermines both the revenue and public safety goals of legalization.
+        *   **Creation of a Harmful Industry ("Big Marijuana"):** Legalization spawns a powerful corporate lobby incentivized to maximize profit by increasing consumption. Like Big Tobacco and Big Alcohol, this industry will likely market aggressively (finding loopholes in regulations), lobby against public health measures (potency caps, advertising restrictions, tax increases), fund biased research, and target vulnerable demographics. Their interests directly conflict with public health.
+        *   **Job Creation Quality:** While jobs are created, they may be predominantly low-wage (retail, cultivation) and potentially offset by job losses or productivity declines in other sectors due to increased impairment.
+
+*   **Argument 4: Regulatory Failure and Implementation Nightmare**
+    *   **Mechanism:** Designing and implementing an effective regulatory framework that balances access with public health protection is incredibly complex and potentially unachievable.
+    *   **Impacts:**
+        *   **Inability to Protect Youth:** Despite age limits, legalization increases overall availability and normalization, leading to easier youth access through social sources (older friends, siblings, inadequate ID checks) and potentially illegal diversion. Home cultivation adds another layer of control difficulty.
+        *   **Controlling Potency & Product Types:** Regulating the vast array of products (edibles, concentrates, vapes) and setting meaningful potency caps is technically challenging and faces industry resistance. How do you ensure consistent dosing in edibles? How do you assess the long-term risks of novel high-THC products?
+        *   **Advertising & Marketing:** Preventing marketing that appeals to youth or downplays risks is notoriously difficult (look at alcohol/vape advertising). The profit motive incentivizes pushing boundaries.
+        *   **Impairment Testing Void:** The lack of a reliable, easily administered roadside test for marijuana impairment (like an alcohol breathalyzer) makes enforcing DUI laws extremely difficult, undermining road safety efforts.
+        *   **Cross-Jurisdictional Issues:** If neighboring states/countries maintain prohibition, it creates issues with cross-border trafficking and legal conflicts.
+
+**3. Anticipated Opening Government Arguments & Counter Arguments:**
+
+*   **OG Argument:** Economic Benefits (Tax Revenue, Jobs, Reduced Enforcement Costs).
+    *   **OO Rebuttal:** Already covered in Argument 3 – Costs > Revenue (healthcare, social harms, regulation), black market persistence undercuts revenue and safety, creation of harmful "Big Marijuana" lobby, quality of jobs questionable. Emphasize the *net* economic picture is likely negative.
+*   **OG Argument:** Individual Liberty / Adult Choice (Comparison to Alcohol/Tobacco).
+    *   **OO Rebuttal:** Liberty is not absolute; it ends where public harm begins. Government's role is to protect public health. Marijuana use has externalities (impaired driving, healthcare costs, workplace safety). Comparison to alcohol/tobacco is flawed – they *also* cause immense harm; adding another legally sanctioned harmful substance is misguided policy ("two wrongs don't make a right"). We should learn from the failures of alcohol/tobacco regulation, not repeat them.
+*   **OG Argument:** Criminal Justice Reform (End arrests, racial disparities, free up resources).
+    *   **OO Rebuttal:** *Decriminalization* achieves most of these goals without the massive public health risks of full commercial legalization. We can stop arresting low-level users without creating a legal market. Racial disparities exist in *enforcement practices* across many laws; legalization doesn't magically fix systemic issues and may create new disparities (e.g., who gets licenses vs. who gets arrested for public consumption). Resources freed might be immediately consumed by dealing with legalization's consequences (DUIs, public health issues).
+*   **OG Argument:** Public Health / Harm Reduction (Regulation ensures safety, quality control, undermines black market).
+    *   **OO Rebuttal:** Regulatory capture by industry is a huge risk (see Big Tobacco). Legal products are often *more* potent and potentially riskier than traditional illicit forms. "Safer" doesn't mean "safe" – the inherent risks of THC remain. Black market persistence shows regulation doesn't eliminate dangers. Harm reduction is better achieved through public health interventions, treatment, and potentially decriminalization, not commercial promotion.
+*   **OG Argument:** Failure of Prohibition (Doesn't stop use, fuels crime).
+    *   **OO Rebuttal:** Prohibition's failures don't automatically validate *this specific model* of commercial legalization. There's a spectrum of policies. Legalization isn't just ending prohibition; it's state *sanctioning and promotion* through a legal market. Acknowledge issues with prohibition but argue legalization creates a different, potentially worse, set of problems, particularly around public health and corporate influence. Frame legalization as an overcorrection with severe foreseeable consequences.
+
+**Overall Strategy for Opening Opposition:**
+
+*   **Frame:** Frame legalization as a dangerous and irresponsible experiment that prioritizes potential profit and questionable notions of liberty over tangible public health and safety.
+*   **Focus:** Concentrate on the severe, evidence-backed risks to public health (especially mental health and youth) and the concrete social costs (impaired driving, workplace).
+*   **Undermine OG:** Systematically dismantle the projected benefits (economic, criminal justice) by highlighting hidden costs, implementation failures, and the availability of less risky alternatives (like decriminalization).
+*   **Use Examples:** Where possible, cite data and experiences from jurisdictions that have legalized (e.g., increased hospitalizations, DUI rates, continued black market activity in Colorado, California, Canada etc.), while being careful about causality claims – correlation isn't causation, but strong correlations warrant serious concern.
+*   **Maintain Consistency:** Ensure the First and Second Opposition speakers build upon each other's arguments and present a united front against the motion.
+
+Good luck with the debate preparation! Remember to deliver these points with conviction and clarity.
+2025-04-21 02:43:43 [DEBUG] __main__: Closing Government output:
+Okay, let's gear up for Closing Government on the motion: **This House Would Legalize Marijuana.**
+
+As Closing Government (CG), our role is crucial. Opening Government (OG) will lay the groundwork, likely focusing on core principles like liberty, potential tax revenue, and the failures of prohibition. Opening Opposition (OO) will likely raise concerns about public health, social costs, and potential harms. Our job is to:
+
+1.  **Identify Gaps/Weaknesses:** Find areas where the OG case can be deepened or where the Opposition's attacks are strongest.
+2.  **Introduce an Extension:** Offer a new, significant argument or a deeper, more nuanced analysis of an existing area that fundamentally shifts or strengthens the Government's position. This must be distinct from OG's contribution.
+3.  **Rebut the Opposition:** Directly counter the arguments made by both OO and Closing Opposition (CO).
+4.  **Summarize and Crystallize:** Frame the debate, emphasizing why our side wins, particularly highlighting the unique contribution of our extension (without explicitly calling it an extension in the speech, just framing its importance).
+
+Here’s a brainstorm covering motion analysis, potential arguments for CG, anticipated Opposition arguments, and counter-arguments:
+
+**I. Motion Analysis**
+
+*   **"Legalize":** This goes beyond decriminalization. It implies creating a legal framework for production, sale, possession, and consumption. This means regulation, quality control, age restrictions, taxation, and licensing – similar to alcohol or tobacco. This regulatory aspect is key ground for us.
+*   **"Marijuana":** Refers to cannabis and its derivatives (THC, CBD products, edibles, oils, flower). We should be clear we're talking about creating a controlled market, not a free-for-all. Consider both recreational and medicinal aspects, though the motion leans recreational.
+*   **The Burden:** We need to prove that the world *with* legal, regulated marijuana is *better* than the status quo (prohibition or varying degrees of decriminalization/medical access).
+
+**II. Potential Opening Government (OG) Arguments (What we might build upon)**
+
+*   **Principle of Autonomy/Liberty:** Adults should have the right to make choices about their own bodies and consumption, provided they don't directly harm others. Prohibition is overly paternalistic.
+*   **Failure of Prohibition:** The "War on Drugs" hasn't stopped marijuana use; it has just created a dangerous, unregulated black market enriching criminals. Arrests disproportionately affect minority communities. Law enforcement resources are wasted.
+*   **Economic Benefits:** Potential for significant tax revenue, job creation (cultivation, processing, retail, ancillary businesses), reduced spending on enforcement and incarceration.
+*   **Public Health (Harm Reduction):** Legalization allows for quality control (preventing lacing/contamination), potency information, age controls, and directing users towards potentially safer consumption methods (edibles vs. smoking). Allows for open public health messaging instead of fear-based campaigns.
+*   **Social Justice:** Ending the disproportionate arrests and convictions of marginalized groups for low-level marijuana offenses. Potential for expungement of past records.
+
+**III. Potential Closing Government (CG) Extension Arguments**
+
+*   **Extension Idea 1: The Sophisticated Regulatory Model & Targeted Reinvestment.**
+    *   **Argument:** Go beyond OG's basic "tax revenue" point. Argue that the *primary benefit* of legalization isn't just revenue, but the *ability to intelligently design a market and reinvest proceeds* to actively mitigate harms and repair past damage.
+    *   **Mechanism Deep Dive:** Detail *specific* regulatory mechanisms crucial for success:
+        *   **Strict Potency Limits:** Especially for edibles and concentrates, which pose higher risks if misused.
+        *   **Plain Packaging & Advertising Bans:** Learn from tobacco/alcohol – prevent marketing aimed at youth or vulnerable groups. No cartoons, no lifestyle branding.
+        *   **Independent Lab Testing Mandates:** Guarantee product safety (no pesticides, mold, heavy metals) and accurate labeling (THC/CBD content). Contrast this starkly with the black market's complete lack of safety.
+        *   **State-Controlled or Highly Regulated Outlets:** Potentially argue for models limiting private profit motive (like some Canadian provinces) or robust licensing that prioritizes safety over saturation.
+        *   **Age Verification:** Strict enforcement, possibly stricter than alcohol.
+    *   **Targeted Reinvestment Deep Dive:** Argue tax revenue should be *earmarked* specifically, not just go to general funds:
+        *   **Substance Abuse Treatment & Prevention:** Significantly fund evidence-based programs for *all* substance issues, acknowledging marijuana can be addictive for some.
+        *   **Public Health Education:** Factual campaigns about risks, responsible use, and harm reduction strategies.
+        *   **Community Restoration:** Direct funds to communities disproportionately harmed by the War on Drugs (job training, education grants, infrastructure).
+        *   **Research:** Fund independent, long-term research on marijuana's effects (health, social, economic) – something prohibition actively hinders.
+    *   **Why it's an Extension:** OG talks *about* regulation and taxes; CG explains the *specifics* of how sophisticated regulation and targeted reinvestment are not just side benefits, but the *core mechanism* that makes legalization superior and directly addresses the harms Opposition focuses on. It shifts the debate from "if" to "how" we make legalization work best.
+
+*   **Extension Idea 2: Comparative Harm Analysis & Systemic Failure of Prohibition.**
+    *   **Argument:** Systematically compare the harms of regulated marijuana vs. illegal marijuana vs. currently legal substances (alcohol, tobacco). Argue prohibition *itself* is the primary driver of the most severe harms associated with cannabis, and legalization is the *least harmful* path forward.
+    *   **Detailed Comparison:**
+        *   **Regulated Marijuana vs. Alcohol/Tobacco:** Explicitly detail relative addiction rates, health impacts (e.g., overdose risk – virtually nil for marijuana vs. alcohol/opioids), links to violence (alcohol far higher). Expose the hypocrisy of prohibiting the relatively less harmful substance.
+        *   **Regulated Marijuana vs. Illegal Marijuana (Status Quo):** Contrast point-by-point:
+            *   *Product Safety:* Known potency/ingredients vs. unknown, potentially contaminated/laced product.
+            *   *Market Control:* Licensed vendors vs. criminal organisations/gangs.
+            *   *Violence:* Reduced market-driven violence vs. turf wars, robberies associated with black market.
+            *   *Access Control:* Age checks vs. dealers who don't check ID.
+            *   *Information:* Health warnings/dosage info vs. zero information.
+            *   *Revenue:* Public taxes vs. criminal profits.
+    *   **Systemic Failure Deep Dive:** Frame *most* of the Opposition's concerns as direct *consequences of prohibition*, not inherent properties of marijuana:
+        *   *Gateway Effect:* Often attributed to exposure to criminal dealers selling harder drugs. Legal sources break this link.
+        *   *Youth Access Problems:* Prohibition creates an easily accessible illegal market; regulation allows *control* points.
+        *   *Stigma Preventing Treatment:* Illegality discourages people from seeking help for problematic use.
+        *   *Lack of Research:* Prohibition hinders scientific understanding.
+    *   **Why it's an Extension:** While OG likely mentions harm reduction, CG provides a *systematic comparative framework* and directly reframes Opposition's core concerns (health, crime, youth) as *products of the policy they defend*. It dismantles the foundations of the prohibitionist stance more deeply.
+
+**IV. Anticipated Opposition Arguments (OO and CO)**
+
+*   **Public Health Crisis:**
+    *   Increased addiction rates (Cannabis Use Disorder).
+    *   Negative impacts on brain development in adolescents and young adults.
+    *   Increased rates of psychosis or mental health issues linked to high-potency THC.
+    *   Lung damage from smoking.
+    *   Increased hospitalizations/ER visits (e.g., from edibles).
+*   **Social Costs:**
+    *   Increased impaired driving (DUID) and accidents. Difficulty in testing for impairment.
+    *   Normalization leading to increased overall use, potentially impacting productivity.
+    *   Creation of a powerful "Big Cannabis" industry mirroring "Big Tobacco" tactics (lobbying, marketing to vulnerable groups).
+    *   Burden on healthcare systems exceeding tax revenue.
+*   **Failure of Regulation:**
+    *   Black markets persisting alongside legal markets (undercutting prices, selling to youth).
+    *   Difficulty in controlling potency and preventing diversion.
+    *   States/countries struggling with effective implementation (e.g., initial supply issues, unintended consequences).
+*   **Moral Hazard / Gateway Drug:**
+    *   Sends the wrong message that drug use is acceptable.
+    *   Marijuana use leads users to try harder, more dangerous drugs.
+*   **International Law:** Conflicts with international drug control treaties.
+
+**V. Counter-Arguments / Rebuttals for CG**
+
+*   **Re: Public Health Crisis:**
+    *   **Our Model Mitigates:** Our sophisticated regulation (potency caps, testing, age limits) directly addresses these concerns far better than prohibition, which offers *zero* control.
+    *   **Targeted Funds:** Tax revenue will be earmarked for treatment, prevention, and research *precisely* to manage these potential increases. The status quo leaves these issues hidden and unfunded.
+    *   **Comparative Harm:** Alcohol and tobacco cause far more documented health damage and are legal. Focus on *relative* risk. Focus on promoting safer consumption (vaping, edibles over smoking).
+    *   **Correlation vs. Causation:** Challenge simplistic links between cannabis and psychosis – confounding factors often exist. Legalization allows better research.
+    *   **Edibles Issue:** This is precisely why strict potency limits and clear labeling (as per our extension) are essential. This is a regulatory challenge, not a reason for prohibition.
+*   **Re: Social Costs:**
+    *   **Impaired Driving:** This is a legitimate concern, needing investment in better testing tech and strict enforcement, funded by taxes. It's not unique to marijuana (alcohol!) and prohibition doesn't stop it now. Focus on impairment, not just presence of THC.
+    *   **Normalization:** Normalization allows *open discussion* and *education* about responsible use, rather than driving it underground. Compare to alcohol – most users are responsible.
+    *   **"Big Cannabis":** Our regulatory model (plain packaging, ad bans, maybe state stores or social equity licensing) is *designed* to prevent this. Contrast with "Big Cartel" under prohibition – accountable corporations are preferable to violent criminal networks.
+    *   **Net Economic Impact:** Factor in savings from law enforcement/courts/prisons alongside tax revenue. Many analyses show a net positive.
+*   **Re: Failure of Regulation:**
+    *   **Black Market Persistence:** Yes, it takes time and adjustment. Key is setting taxes appropriately (not too high) and robust enforcement against *unlicensed* sellers. Still better than a *100%* black market. Legal markets provide a *safer alternative*.
+    *   **Implementation Challenges:** Learning curve exists, but jurisdictions adapt. This is an argument for careful implementation (drawing on lessons learned elsewhere), not for maintaining a failed prohibition.
+*   **Re: Moral Hazard / Gateway Drug:**
+    *   **Gateway Theory Discredited:** Largely debunked; social environment and access to dealers under prohibition are bigger factors. Alcohol/tobacco are often earlier 'gateways'. Legal sources decouple marijuana from hard drug markets.
+    *   **Moral Argument:** Non-sequitur in a pragmatic policy debate focused on outcomes. Paternalism is often counterproductive. Focus on harm reduction and responsible regulation. Legality doesn't equal endorsement (cf. gambling, alcohol).
+*   **Re: International Law:**
+    *   Treaties can be renegotiated or withdrawn from (as Canada effectively did). Domestic policy should prioritize national interest and evidence. Several nations (Uruguay, Canada, parts of US, Germany moving) are already challenging the status quo.
+
+**VI. Strategy for CG Speeches**
+
+*   **CG Member:**
+    *   Briefly acknowledge OG's framework.
+    *   Engage heavily with OO's main attacks, using comparative arguments and highlighting the failures/harms of the status quo (prohibition).
+    *   Introduce the CG extension (e.g., the detailed regulatory/reinvestment model OR the systematic comparative harm analysis). Explain *why* this deeper level of analysis is crucial to winning the debate and resolving the core tensions Opp raises.
+    *   Show how this extension makes the Government case more robust and resilient to Opposition attacks.
+*   **CG Whip:**
+    *   *No new arguments.*
+    *   Defend the CG extension from CO attacks.
+    *   Systematically rebut CO arguments, grouping them where possible.
+    *   Summarize the debate around key clash points (e.g., Public Health: Prohibition vs. Regulation; Economy: Black Market vs. Tax & Invest; Justice: Disproportionate Harm vs. Controlled Liberty).
+    *   Crystallize: Explain why, *especially considering the CG analysis*, the benefits of a well-regulated legal market significantly outweigh the harms of continued prohibition. Emphasize that Opposition is defending a demonstrably failed and harmful status quo, while Government offers a pragmatic, adaptable, and ultimately less harmful path forward. Highlight how our regulatory vision specifically counters their fears.
+
+By focusing on a sophisticated extension and robust rebuttal strategy, CG can effectively build upon OG's case and powerfully counter the Opposition, demonstrating why legalizing marijuana, when done thoughtfully, is the superior policy.
+2025-04-21 02:43:43 [DEBUG] __main__: Closing Opposition output:
+Okay, let's gear up for the Closing Opposition role on the motion: **"This house would legalize marijuana."**
+
+Our job as Closing Opposition (CO) is crucial. We need to:
+1.  **Re-establish** the core Opposition case, potentially reframing it.
+2.  **Rebut** the arguments made by the Closing Government (CG), who will likely try to rebuild their case and potentially introduce new angles.
+3.  **Extend** the Opposition case with deeper analysis, new arguments, or a more significant impact assessment of existing points, showing why our side's concerns outweigh any benefits proposed by the Government.
+4.  **Summarize** the debate, highlighting the key clashes and demonstrating why the Opposition has won those clashes.
+
+Here’s a breakdown for brainstorming:
+
+**I. Motion Analysis & Definitions (Opposition Stance)**
+
+*   **Legalization:** This isn't just decriminalization (removing criminal penalties for possession). It means establishing a legal framework for production, distribution, sale, and possession of marijuana, likely subject to regulations (age limits, potency limits, taxation, licensing). Government will paint this as controlled and safe; we must challenge this assumption.
+*   **Marijuana:** Refers to cannabis and its psychoactive components (primarily THC). We should highlight the increasing potency of modern cannabis products compared to decades past.
+*   **Scope:** Likely implies recreational use, as medical marijuana often has separate legal frameworks already (which we can acknowledge or even support, distinguishing it sharply from broad recreational legalization).
+*   **Opposition Core Stance:** While acknowledging potential *theoretical* benefits touted by the Government (tax, crime reduction), we argue that the practical implementation of legalization creates unacceptable risks and harms to public health, public safety, and social well-being that *far outweigh* these potential benefits. We may also argue the benefits themselves are illusory or overstated. Our alternative might implicitly or explicitly be maintaining the status quo, focusing on decriminalization *without* commercialization, or strengthening public health approaches rather than state sanctioning.
+
+**II. Possible Arguments for Closing Opposition (Extension Material & Deeper Analysis)**
+
+These should ideally build upon what Opening Opposition (OO) might have started, or offer new perspectives.
+
+1.  **The Unmanageable Public Health Crisis (Deep Dive):**
+    *   **Beyond Addiction - The Mental Health Nexus:** OO might mention mental health risks. CO *deepens* this. Focus on the *specific link* between high-potency THC (prevalent in legal markets) and increased rates of psychosis, schizophrenia, anxiety, and depression, especially in adolescents and young adults whose brains are still developing. Argue legalization *normalizes and facilitates access* to these high-potency products. Frame it not just as an individual risk, but a *public health burden* straining mental healthcare systems that are often already under-resourced.
+    *   **The "Can't Put the Genie Back In" Argument:** Legalization creates a *permanent* shift in societal norms and substance availability. Even if unforeseen negative consequences emerge (as seen with opioids, vaping), reversing legalization is politically and practically extremely difficult once industries are established and use is widespread. This makes the *risk* of legalization fundamentally different and higher than other policy experiments.
+    *   **Polysubstance Use & Normalization:** Legalization doesn't happen in a vacuum. It contributes to a broader normalization of recreational substance use. Argue this lowers perceived risks *across the board*, potentially increasing use of alcohol, tobacco, and even illicit drugs, especially among youth who see state-sanctioned marijuana as "safe."
+    *   **Long-Term Health Impacts Unknown/Underestimated:** We don't have decades of data on the effects of widespread use of modern, high-potency cannabis (especially vaping/edibles). We are embarking on a massive public health experiment with potentially severe, yet unknown, long-term consequences (cancers, respiratory diseases, cognitive decline). Compare to the delayed understanding of tobacco's full impact.
+
+2.  **The Illusion of Control - Regulatory Failure is Inevitable:**
+    *   **The Impaired Driving Catastrophe (Crucial CO Point):** OO likely mentioned DUI. CO *emphasizes the intractability* of the problem. Unlike alcohol's reliable breathalyzer test for *current impairment*, there's no equivalent for cannabis. THC stays in the system long after impairment fades. Legal methods rely on blood tests (invasive, slow) or subjective roadside sobriety tests (unreliable, prone to bias). This means legalization *inherently* increases road danger because enforcing DUI laws becomes incredibly difficult. Provide stats/anecdotes from legal jurisdictions showing increased cannabis-related traffic accidents/fatalities. Frame this as a direct, unavoidable consequence of legalization policy.
+    *   **Black Market Persistence & Evolution:** Government argues legalization eliminates the black market. CO *refutes* this strongly. High taxes, regulatory burdens, and licensing costs in the legal market *keep the black market thriving*. It often offers cheaper, tax-free products, potentially targets underage users more effectively, and may even offer dangerously unregulated high-potency products. Legalization doesn't kill the black market; it forces it to adapt, potentially becoming more sophisticated or dangerous.
+    *   **Potency Inflation & The Arms Race:** Legal markets often lead to a "race to the top" for THC potency, driven by consumer demand and corporate profit motives. Regulators struggle to keep up, and initial potency caps (if any) face immense lobbying pressure to be raised. This exposes users to higher risks than proponents often acknowledge based on experiences with lower-potency cannabis of the past.
+    *   **Marketing Seepage & Youth Exposure:** Despite bans on marketing to minors, legalization inevitably increases youth exposure through social media, cultural presence, product placement proximity (e.g., stores near schools), and availability in households. Compare to alcohol/tobacco marketing challenges. Corporate interests *will* push boundaries to expand markets.
+
+3.  **Economic Mirage - Costs Outweigh Benefits:**
+    *   **Quantifying the Hidden Costs:** OO might generally state costs > revenue. CO *details* these costs. Increased healthcare expenditure (ER visits for panic attacks/psychosis, addiction treatment, long-term mental health support), increased law enforcement costs (DUI enforcement, regulation), workplace productivity losses, CJS costs associated with downstream effects (even if simple possession arrests decrease). Argue these societal costs *directly offset or exceed* tax revenues, making it a net economic drain.
+    *   **"Big Marijuana" - Corporate Capture & Social Inequality:** Legalization rarely leads to the promised "mom-and-pop" craft cannabis industry. Instead, it's often dominated by large corporations (sometimes linked to tobacco/alcohol industries) with lobbying power. These entities prioritize profit over public health, fight regulation, and often fail to deliver on social equity promises (e.g., ensuring minority participation in the industry after disproportionate harm from prohibition). Argue legalization entrenches corporate power and potentially exacerbates inequality.
+
+4.  **The Decriminalization Alternative (Strategic Framing):**
+    *   As CO, you can crystallize the Opposition stance. If OO hasn't, CO can strongly advocate for *decriminalization* as the superior alternative. Decrim achieves the key Gov goal of ending arrests/criminal records for simple possession (addressing racial justice concerns) *without* creating a state-sanctioned, commercialized industry with all its attendant public health and safety risks. Frame legalization as an unnecessary overreach driven by commercial interests, when the core problem (unjust arrests) can be solved more safely via decriminalization.
+
+**III. Anticipating Government Arguments (Specifically CG) & Counter-Arguments**
+
+CG will try to rebuild and consolidate. They might focus on:
+
+*   **Gov Argument (CG Emphasis):** "Look at the success stories!" (Pointing to specific states/countries, highlighting tax revenue, stable usage rates).
+    *   **CO Counter:** Cherry-picking data. Early data is often incomplete or confounded by other factors. Highlight negative data points from those *same* jurisdictions (e.g., increased hospitalizations, DUI incidents, persistent black markets in Colorado, California). Argue long-term impacts are still emerging. Usage rates might be stable *overall*, but *youth* usage or *high-potency* usage might be increasing alarmingly. The "success" narrative ignores the hidden costs.
+*   **Gov Argument (CG Emphasis):** "Regulation WORKS! We can control potency, marketing, access."
+    *   **CO Counter:** Point to regulatory failures (vaping crisis, opioid crisis awareness came too late). Detail the *specific* challenges of cannabis regulation (potency testing variability, edible dosage control, DUI enforcement impossibility, marketing loopholes). Argue the profit motive of the industry *always* pushes against effective regulation. "Trust us, we'll regulate it" is naive optimism contradicted by history and the nature of addiction-for-profit industries.
+*   **Gov Argument (CG Emphasis):** "The sky hasn't fallen in places that legalized!" (Downplaying the harms).
+    *   **CO Counter:** This is complacency. The "sky not falling" ignores *significant increases* in specific harms (DUI, youth mental health issues, ER visits). Frame these not as catastrophes, but as serious, growing public health problems directly attributable to legalization. Argue that the *cumulative* effect over time represents a substantial negative shift in societal well-being. Use analogies: Lead paint didn't make the sky fall overnight, but its long-term impact was devastating.
+*   **Gov Argument (CG Emphasis):** "Personal liberty and autonomy demand this." (Reframing as a rights issue).
+    *   **CO Counter:** Reiterate the "harm principle." Individual liberty ends where significant harm to others begins. Legalization causes externalities: endangerment via DUI, societal healthcare costs, normalization affecting youth choices. Frame it as a balance: the alleged "liberty" to use cannabis recreationally is outweighed by the demonstrable harms and risks imposed on the entire community. Contrast with rights that don't carry such direct public health/safety externalities.
+*   **Gov Argument (CG Emphasis):** "If we can regulate alcohol/tobacco, we can regulate cannabis."
+    *   **CO Counter:** Flawed analogy.
+        *   *Learning from mistakes:* We *know* the immense harms caused by legal alcohol/tobacco and the societal cost. Why willingly add *another* potentially harmful, addictive substance to the legal market? We should learn from past mistakes, not repeat them.
+        *   *Different challenges:* Cannabis poses unique regulatory challenges, especially DUI enforcement and the rapid evolution of high-potency products/delivery systems (edibles, vapes), which differ significantly from alcohol/tobacco's historical trajectory.
+
+**IV. Strategy for CO**
+
+*   **Listen Carefully:** Identify the weakest points in the CG case and the strongest threads from OO you can amplify.
+*   **Clash Identification:** Frame the debate around 2-3 central questions (e.g., Public Health vs. Liberty, Economic Gain vs. Social Cost, Effective Regulation vs. Inevitable Harm). Show why Opposition wins these clashes.
+*   **Impact Weighing:** Constantly emphasize the *scale and severity* of the harms you're outlining (loss of life in DUI, lifelong mental illness, burden on healthcare) versus the often speculative or marginal benefits proposed by Government (tax revenue often disappointing, crime reduction marginal or shifted).
+*   **Be Definitive:** Provide the final, most compelling reasons why legalization is a dangerous and unnecessary policy. Use strong, clear language. End with a powerful summary of the Opposition bench's stance.
+
+By focusing on deepening the analysis of harms, dismantling the practicality of regulation, and potentially offering decriminalization as a less risky alternative, the Closing Opposition can present a powerful case against the legalization of marijuana. Good luck!
+2025-04-21 02:43:43 [DEBUG] openai._base_client: Request options: {'method': 'post', 'url': '/audio/speech', 'headers': {'Accept': 'application/octet-stream', 'X-Stainless-Raw-Response': 'stream'}, 'files': None, 'json_data': {'input': "Ladies and gentlemen, the prep time is over. Now let's welcome the Prime Minister to deliver his speech, hear hear.", 'model': 'gpt-4o-mini-tts', 'voice': 'coral', 'instructions': 'Speak as the impassioned Speaker of a British Parliamentary debate. Your voice is loud, sharp, and crystal clear. Speak with urgency and weight—every syllable rings with purpose. Your tone is formal but electrified, carrying deep belief in the power of discourse and democracy. Project absolute authority. Keep a fast, punchy rhythm, with dramatic pauses when needed. Let your passion for order, fairness, and spirited debate pour through your voice—never flat, never dull. You are not just keeping order—you are breathing life into the chamber.', 'response_format': 'wav'}}
+2025-04-21 02:43:43 [DEBUG] httpcore.socks: connect_tcp.started host='127.0.0.1' port=10808 timeout=5.0
+2025-04-21 02:43:43 [DEBUG] httpcore.socks: connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f817b984310>
+2025-04-21 02:43:43 [DEBUG] httpcore.socks: setup_socks5_connection.started stream=<httpcore._backends.anyio.AnyIOStream object at 0x7f817b984310> host='api.openai.com' port=443 auth=None
+2025-04-21 02:43:43 [DEBUG] httpcore.socks: setup_socks5_connection.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f817b984310>
+2025-04-21 02:43:43 [DEBUG] httpcore.socks: start_tls.started ssl_context=<ssl.SSLContext object at 0x7f8185d8aba0> server_hostname='api.openai.com' timeout=5.0
+2025-04-21 02:43:44 [DEBUG] httpcore.socks: start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7f81863cf390>
+2025-04-21 02:43:44 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2025-04-21 02:43:44 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-04-21 02:43:44 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2025-04-21 02:43:44 [DEBUG] httpcore.http11: send_request_body.complete
+2025-04-21 02:43:44 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2025-04-21 02:43:44 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 20 Apr 2025 18:43:44 GMT'), (b'Content-Type', b'audio/wav'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'none-briod9'), (b'openai-processing-ms', b'237'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199972'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'8ms'), (b'x-request-id', b'req_37ab41fffae9417bbec50cbbe5f23a88'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=j4_jY8O__EK6d5YVPRguZaTs0YBsv9VmxFA_ehZIqnE-1745174624-1.0.1.1-7.pI8P..PkvxiDHDbFhfUaE2sSV7HWEq8cMEoULfrRx89ddEgXoBNLzYLUIUupWkezcm6u4hznm93LM42mi5l4Fef9Zv3H8aNzWXyC5GxtY; path=/; expires=Sun, 20-Apr-25 19:13:44 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=Q3sr_Ky9HNBOWGZSaV.hWLWvYfirZi.8IfPcfTU9cmI-1745174624704-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9336c9fa7ec62f6f-LAX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-04-21 02:43:44 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/audio/speech "HTTP/1.1 200 OK"
+2025-04-21 02:43:44 [DEBUG] openai._base_client: HTTP Request: POST https://api.openai.com/v1/audio/speech "200 OK"
+2025-04-21 02:43:44 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2025-04-21 02:43:45 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-04-21 02:43:45 [DEBUG] httpcore.http11: response_closed.started
+2025-04-21 02:43:45 [DEBUG] httpcore.http11: response_closed.complete
+2025-04-21 02:43:54 [INFO] __main__: Debate session started
+2025-04-21 02:43:54 [INFO] __main__: Prime Minister is delivering speech
+2025-04-21 02:43:54 [DEBUG] openai._base_client: Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'user', 'content': '\n🎤 Prime Minister Speech Generator Prompt (Humanized BP Format)\nYou\'re the Prime Minister opening a British Parliamentary debate. Your speech should sound authentic, passionate, and conversational—like a real person leading a discussion. Generate a speech of at least 720 words but no more than 800 words. Persuade your audience that your policy is necessary, justified, and effective. Follow this natural-speaking structure precisely as described, clearly reflecting the traditional BP debate structure stored in memory:\nDescribe the Status Quo: Start vividly: "What we see nowadays is..." or "Right now, we live in a world where..." Use storytelling or relatable examples to capture attention emotionally and practically.\nIdentify the Problem: Smoothly highlight why this situation isn\'t acceptable: "The problem is clear..." or "This is something we simply can\'t accept anymore." Emphasize seriousness and urgency.\nExplain Your Stance: Clearly introduce your stance by confidently stating something like: "That\'s why we, on side government, are proud to propose..." or simply "Today, this House would..."\nGive Your Definition: Casually clarify any key terms or concepts your audience might not immediately grasp. Avoid overly technical explanations; just explain naturally, perhaps using examples for clarity.\nExplain Your Policy: Describe your policy in plain language: "Here\'s exactly what we\'re going to do..." or "Our plan is simple and clear—here\'s how it works." Make sure it sounds practical and realistic.\nJustification and Moral Framing: Transition naturally into why this is the right thing to do: "We believe deeply this policy is justified because..." or "This isn\'t just practical—it\'s morally necessary."\nStakeholders and Benefits: Talk about who your policy helps: "This will directly benefit people who..." or "Imagine how life changes positively for..." Clearly highlight vulnerable or important stakeholders, and explain why they deserve attention.\nTag Your Arguments: Announce your key arguments conversationally: "I\'ve got two main reasons for you today—first is... and secondly... Now, let me explain each of these clearly."\nEnd With Momentum: Wrap up powerfully yet authentically: "Ultimately, this policy matters because..." End your speech on an uplifting, forward-looking note: "We genuinely believe we can make a difference here, and that\'s exactly why we propose this motion."\nTone & Delivery Tips:\nSpeak clearly, passionately, and naturally—avoid sounding robotic or overly formal.\nUse natural pauses, variations in pace, and genuine emotion.\nSound approachable yet authoritative and convincing, like a trusted leader rallying others around an important cause.\n\nYou have no previous speaker, so ignore the speech list provided bellow.\n\nNow you are going to start your speech to open up the debate, the motion is:\n\n\nThe motion reads: This house would legalize marijuana.\n\nThe previous speakers conversation: \n\nHere are the clues you\'ve prepared:\n\nOkay, let\'s break down the motion "This house would legalize marijuana" for the Opening Government (OG) team.\n\n**Motion Analysis**\n\n1.  **Keywords:**\n    *   **"Legalize":** This is the core action. It means moving marijuana from the category of illegal substances to legal ones. Crucially, this implies more than just *decriminalization* (removing criminal penalties for possession of small amounts). Legalization means establishing a legal framework for production, distribution, sale, taxation, and consumption. It inherently involves **regulation**.\n    *   **"Marijuana":** Refers to cannabis, encompassing various forms (flower, edibles, concentrates, etc.). The motion likely implies recreational use, as medicinal marijuana is already legal or decriminalized in many jurisdictions. OG should probably clarify they are primarily focused on establishing a **regulated recreational market**, possibly building upon existing medicinal frameworks.\n    *   **"This house":** In a standard debate context, this refers to the government or decision-making body being simulated. Often assumed to be a generic liberal democratic state, unless context implies otherwise. Assume a context where alcohol and tobacco are legal but regulated.\n\n2.  **Scope and Burden of Proof (What OG needs to do):**\n    *   OG needs to demonstrate that the *benefits* of legalizing and regulating marijuana outweigh the *harms* of the current system (prohibition) AND any potential new harms introduced by legalization.\n    *   OG should propose a plausible *type* of legalization model – not necessarily a detailed bill, but the principles behind it (e.g., regulated market similar to alcohol, age restrictions, quality control, taxation).\n    *   OG needs to establish the *problem* with the status quo (prohibition\'s failures) and show how legalization is the *solution*.\n\n3.  **The Status Quo (Implicit):** Marijuana is currently illegal for recreational use. This leads to:\n    *   An unregulated, untaxed black market controlled by criminal elements.\n    *   Significant state expenditure on enforcement (police, courts, prisons).\n    *   Criminal records for users, often with disproportionate impacts on certain communities.\n    *   Lack of quality control and consumer safety information.\n    *   Potential health risks being addressed through a criminal rather than public health lens.\n\n**Opening Government Arguments (Pro-Legalization)**\n\nHere’s a range of arguments, from core principles to specific impacts:\n\n1.  **Principle: Individual Liberty and Autonomy**\n    *   **Argument:** Competent adults should have the right to make choices about their own bodies and consumption, provided they do not unduly harm others. Banning marijuana infringes on this autonomy.\n    *   **Reasoning:** The state\'s role should not be overly paternalistic. If adults can choose to consume alcohol or tobacco, which carry significant health risks, preventing them from using marijuana (arguably less harmful in certain aspects) is inconsistent and an overreach of state power. The potential harms of marijuana use do not justify a complete ban infringing on liberty, especially when regulation can mitigate many risks.\n\n2.  **Failure of Prohibition & Rise of Criminal Justice Reform**\n    *   **Argument:** The "War on Drugs," specifically regarding marijuana, has demonstrably failed. It hasn\'t eradicated use, but has created immense social and economic costs.\n    *   **Reasoning:**\n        *   *(Ineffectiveness):* Despite decades of prohibition and billions spent, marijuana remains widely available and used. Prohibition doesn\'t stop use; it just drives it underground.\n        *   *(Social Injustice):* Enforcement of marijuana laws disproportionately affects minority communities and low-income individuals, leading to higher arrest and incarceration rates for these groups despite similar rates of use across demographics. This creates cycles of poverty and disadvantage due to criminal records affecting employment, housing, and education. Legalization ends this specific avenue of systemic injustice.\n        *   *(Resource Drain):* Vast amounts of public resources (police time, court resources, prison space) are consumed enforcing marijuana laws. Legalization frees up these resources to focus on more serious crimes (e.g., violent crime, trafficking of genuinely dangerous substances).\n\n3.  **Economic Benefits**\n    *   **Argument:** Legalization creates significant economic opportunities through taxation, job creation, and shifting funds away from illicit markets.\n    *   **Reasoning:**\n        *   *(Tax Revenue):* Governments can levy excise taxes and sales taxes on legal marijuana products. This revenue can be substantial (as seen in Colorado, California, Canada) and can be earmarked for public services like education, healthcare, infrastructure, or addiction treatment programs. This is revenue currently lost to the black market.\n        *   *(Job Creation):* A legal marijuana industry requires jobs across the supply chain: cultivation, processing, distribution, retail, testing, regulation, marketing (within strict limits). This boosts employment and economic activity.\n        *   *(Undermining the Black Market):* A legal, regulated market competes directly with the illicit market. While it may not eliminate it entirely (especially if taxes are too high), it significantly reduces its size, profitability, and associated violence. This cuts off a major funding source for organized crime.\n\n4.  **Public Health and Safety Improvement through Regulation**\n    *   **Argument:** Legalization allows for regulation, which enhances public health and safety compared to the dangers of an unregulated black market.\n    *   **Reasoning:**\n        *   *(Quality Control & Consumer Safety):* Legal products can be tested for potency (THC/CBD levels), purity (pesticides, mold, contaminants). Consumers know what they are getting. Black market products have unknown potency and potential dangerous adulterants. Edibles can have standardized dosages.\n        *   *(Age Restrictions):* A legal framework establishes and enforces strict age limits (e.g., 18 or 21), making it potentially *harder* for minors to access than from dealers who don\'t check ID. Licensed retailers have strong incentives (losing their license) to comply.\n        *   *(Harm Reduction & Education):* Legalization allows for open discussion and public health campaigns about responsible use, potential risks, and harm reduction strategies (e.g., warnings about impaired driving, interactions). Tax revenue can fund these initiatives and treatment programs for Cannabis Use Disorder, treating it as a health issue, not a crime.\n        *   *(Reduced Harm Compared to Legal Alternatives):* Comparatively, marijuana poses fewer acute health risks than alcohol (e.g., fatal overdose is virtually impossible with marijuana, alcohol poisoning is common; links between alcohol and violence are stronger). It\'s inconsistent to ban marijuana while allowing alcohol.\n\n5.  **Facilitating Medical Use and Research**\n    *   **Argument:** While focused on recreational, broader legalization destigmatizes cannabis and can remove barriers to legitimate medical use and scientific research.\n    *   **Reasoning:** Even where medical marijuana is legal, prohibition creates stigma and logistical hurdles. Full legalization normalizes cannabis, potentially making doctors more comfortable discussing it, patients less hesitant to seek it, and removing federal barriers (in places like the US) that hamper large-scale clinical research into its therapeutic potential.\n\n**Possible Opposition Arguments and Counter-Arguments (Pre-computation/Pre-buttal)**\n\nOG should anticipate these arguments and briefly address them or frame their case to mitigate them:\n\n1.  **Opposition Argument:** Increased Public Health Risks (Addiction, Mental Health, Youth Use, Impaired Driving).\n    *   **OG Counter:**\n        *   *(Addiction/CUD):* Rates are lower than alcohol/tobacco. Regulation allows *treatment* funded by taxes, unlike prohibition which hides the problem.\n        *   *(Mental Health):* Correlation vs. causation is complex. Prohibition doesn\'t stop use among vulnerable people; regulation allows open discussion, risk warnings, potency control, and support.\n        *   *(Youth Use):* Evidence from legal states is mixed/contested, but many show *no significant increase* or even decreases. Regulation aims to *restrict* youth access more effectively than the black market. Focus on strong regulatory enforcement.\n        *   *(Impaired Driving):* This is a serious concern, but it\'s *already illegal* to drive impaired by *any* substance. Legalization allows for dedicated funding (from taxes) for better detection methods, enforcement, and public awareness campaigns, similar to alcohol. Prohibition doesn\'t stop DUID.\n\n2.  **Opposition Argument:** "Gateway Drug" Theory.\n    *   **OG Counter:** This theory is largely discredited by evidence. Correlation is often linked to social factors (access through illicit dealers who also sell other drugs) rather than cannabis itself. Legalization *separates* the marijuana market from harder drugs. Alcohol and tobacco could equally be considered "gateways."\n\n3.  **Opposition Argument:** Normalization Leading to Widespread Problems / Unforeseen Consequences.\n    *   **OG Counter:** We are normalizing *regulation* and *responsible adult use*, not abuse. Compare to alcohol – most users are responsible. Regulation allows us to manage the societal integration of marijuana proactively, learning from mistakes made with alcohol and tobacco (e.g., strict advertising limits). The "unforeseen consequences" of *prohibition* are well-documented and severe (crime, injustice, cost).\n\n4.  **Opposition Argument:** The Black Market Will Persist.\n    *   **OG Counter:** It likely won\'t disappear overnight, especially if taxes are too high or regulations too cumbersome. However, a legal market offering tested, safe, convenient products will significantly *erode* the black market\'s share and power over time, reducing associated crime and violence. This is a marked improvement over the status quo where the black market has 100% control.\n\n5.  **Opposition Argument:** Rise of "Big Marijuana" (like Big Tobacco).\n    *   **OG Counter:** This is a valid concern, which is precisely why *strong regulation* is key. We can implement measures like advertising bans, plain packaging, market share caps, and restrictions on lobbying to prevent undue corporate influence and predatory practices. We must learn from past regulatory failures with other industries.\n\n**Strategy for OG Speech**\n\n*   **Frame:** Frame the debate as moving from a failed, harmful system (prohibition) to a sensible, regulated approach that maximizes benefits while mitigating harms. Emphasize control, safety, justice, and revenue.\n*   **Prioritize:** Focus on the strongest arguments: failure of prohibition/social justice, economic benefits, and public health through regulation. The liberty argument is good but sometimes less persuasive to judges focused on concrete impacts.\n*   **Mechanism:** Clearly state the *type* of regulated market being proposed (age limits, licensing, testing, taxes).\n*   **Comparative:** Constantly compare the proposed world (legalization) with the status quo (prohibition). Highlight the harms *caused* by prohibition. Use comparisons to alcohol/tobacco regulation where favourable.\n*   **Pre-emption:** Briefly acknowledge potential downsides (like impaired driving) but immediately explain how regulation is the best way to *manage* these risks, unlike prohibition which ignores or exacerbates them.\n\nBy structuring the case around these points and anticipating the Opposition, the Opening Government can present a strong, principled, and practical case for legalizing marijuana.'}], 'model': 'o1-mini'}}
+2025-04-21 02:43:54 [DEBUG] openai._base_client: Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-04-21 02:43:54 [DEBUG] httpcore.socks: connect_tcp.started host='127.0.0.1' port=10808 timeout=5.0
+2025-04-21 02:43:54 [DEBUG] httpcore.socks: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f817b9f3f90>
+2025-04-21 02:43:54 [DEBUG] httpcore.socks: setup_socks5_connection.started stream=<httpcore._backends.sync.SyncStream object at 0x7f817b9f3f90> host='api.openai.com' port=443 auth=None
+2025-04-21 02:43:54 [DEBUG] httpcore.socks: setup_socks5_connection.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f817b9f3f90>
+2025-04-21 02:43:54 [DEBUG] httpcore.socks: start_tls.started ssl_context=<ssl.SSLContext object at 0x7f8185d8b770> server_hostname='api.openai.com' timeout=5.0
+2025-04-21 02:43:54 [DEBUG] httpcore.socks: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f8187dfc7d0>
+2025-04-21 02:43:54 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2025-04-21 02:43:54 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-04-21 02:43:54 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2025-04-21 02:43:54 [DEBUG] httpcore.http11: send_request_body.complete
+2025-04-21 02:43:54 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2025-04-21 02:44:03 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 20 Apr 2025 18:44:02 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'none-briod9'), (b'openai-processing-ms', b'7664'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-remaining-tokens', b'196277'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-ratelimit-reset-tokens', b'1.116s'), (b'x-request-id', b'req_4360f1effa12a15b78d72fbca523e2fc'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=XLaz3WBnbJSx5HX10moMyZULLO2uyCcFojNcZdHsnos-1745174642-1.0.1.1-3QAkwqVtOdALcX6PohpvDupum2PoMLKw.WVNqxA4aEtvKQHIs2pc0NntBqrKosrnw3PeFS.wUmT.oElhMA7Id3EZyU2YKDoC84Qx6ner1nk; path=/; expires=Sun, 20-Apr-25 19:14:02 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=LCkK29Sro8miUZI7hB5Q3dh_nQ07br5ReNyQU_VOP5Y-1745174642946-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9336ca3cee54521a-LAX'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-04-21 02:44:03 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-21 02:44:03 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2025-04-21 02:44:03 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-04-21 02:44:03 [DEBUG] httpcore.http11: response_closed.started
+2025-04-21 02:44:03 [DEBUG] httpcore.http11: response_closed.complete
+2025-04-21 02:44:03 [DEBUG] openai._base_client: HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sun, 20 Apr 2025 18:44:02 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'none-briod9'), ('openai-processing-ms', '7664'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '500'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '499'), ('x-ratelimit-remaining-tokens', '196277'), ('x-ratelimit-reset-requests', '120ms'), ('x-ratelimit-reset-tokens', '1.116s'), ('x-request-id', 'req_4360f1effa12a15b78d72fbca523e2fc'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=XLaz3WBnbJSx5HX10moMyZULLO2uyCcFojNcZdHsnos-1745174642-1.0.1.1-3QAkwqVtOdALcX6PohpvDupum2PoMLKw.WVNqxA4aEtvKQHIs2pc0NntBqrKosrnw3PeFS.wUmT.oElhMA7Id3EZyU2YKDoC84Qx6ner1nk; path=/; expires=Sun, 20-Apr-25 19:14:02 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=LCkK29Sro8miUZI7hB5Q3dh_nQ07br5ReNyQU_VOP5Y-1745174642946-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '9336ca3cee54521a-LAX'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-04-21 02:44:03 [DEBUG] openai._base_client: request_id: req_4360f1effa12a15b78d72fbca523e2fc
