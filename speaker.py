@@ -1,7 +1,7 @@
-import os
 import asyncio
 from text_generator import Responder
 from interaction import Interaction
+from config_utils import get_config
 
 
 # text = "Ladies and gentlemen, welcome to this debate. The motion reads: {motion}, now you have 1 minute to read the motion and then you will have 15 minutes for prep time.".format(motion=self.motion)
@@ -18,7 +18,7 @@ class Speaker():
         self.interaction = Interaction()
         self.motion = motion
         self.speaking_order = ["Prime Minister", "Leader of Opposition", "Deputy Prime Minister", "Deputy Leader of Opposition", "Member of Government", "Member of Opposition", "Government Whip", "Opposition Whip"]
-        self.speaker_tone = os.getenv("speaker_tone")
+        self.speaker_tone = get_config("speaker_tone")
         
     async def announce_motion(self) -> None:
         text = "Ladies and gentlemen, welcome to this debate. The motion reads: {motion}, now you have 1 minute to read the motion and then you will have 15 minutes for prep time.".format(motion=self.motion)

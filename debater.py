@@ -1,11 +1,11 @@
 from openai import OpenAI, AsyncOpenAI
 from openai.helpers import LocalAudioPlayer
 import os
-from dotenv import load_dotenv
 import debater_speech_structure
 import asyncio
 from text_generator import Responder
 import json
+from config_utils import get_config
 
 
 """
@@ -15,7 +15,7 @@ There should be one def prompt_loader() that uses a general way of combining the
 
 """
 
-debater_tone = os.getenv("debater_tone")
+debater_tone = get_config("debater_tone")
 
 speaker_with_prompt = [
     ["Prime Minister", [debater_speech_structure.prime_minister_speech, debater_tone], "OG"],

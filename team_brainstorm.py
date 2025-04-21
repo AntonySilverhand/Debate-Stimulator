@@ -1,10 +1,7 @@
 from openai import OpenAI
 import os
-from dotenv import load_dotenv
 from text_generator import Responder
-
-# Make sure to load environment variables
-load_dotenv()
+from config_utils import get_config
 
 """
 This file is for generating group discussion of each team.
@@ -14,8 +11,8 @@ TODO: Restructure and use text_generator to provide texts.
 
 class BrainStormer:
     def __init__(self, service: str = None):
-        # Get the service from environment or use the provided one
-        self.service = service if service else os.getenv("TEAM_AI_PROVIDER")
+        # Get the service from config or use the provided one
+        self.service = service if service else get_config("TEAM_AI_PROVIDER")
         # Strip any whitespace that might be in the environment variable
         if self.service:
             self.service = self.service.strip().lower()
@@ -24,7 +21,7 @@ class BrainStormer:
 
     def brain_storm(self, motion, team) -> str:
         if not self.service:
-            raise ValueError(f"No AI service specified. Please set TEAM_AI_PROVIDER in your .env file.")
+            raise ValueError(f"No AI service specified. Please set TEAM_AI_PROVIDER in your config.json file.")
         
         if self.service == "openrouter":
             return self.openrouter_brainstormer(motion, team)
@@ -41,12 +38,12 @@ class BrainStormer:
         try:
             client = OpenAI(
                 base_url="https://openrouter.ai/api/v1",
-                api_key=os.getenv("OPENROUTER_API_KEY"),
+                api_key=os.environ.get("OPENROUTER_API_KEY"),
             )
 
             print("Making API call to OpenRouter...")
             completion = client.chat.completions.create(
-                model=os.getenv("TEAM_AI_MODEL"),   
+                model=get_config("TEAM_AI_MODEL"),   
                 messages=[
                     {
                         "role": "user",
@@ -67,9 +64,9 @@ class BrainStormer:
                 os.environ['https_proxy'] = original_https_proxy
 
     def openai_brainstormer(self, motion, team) -> str:
-        client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
         response = client.chat.completions.create(
-            model=os.getenv("TEAM_AI_MODEL"),
+            model=get_config("TEAM_AI_MODEL"),
             messages=[
                 {"role": "user", "content": self.text.format(motion, team)}
             ]

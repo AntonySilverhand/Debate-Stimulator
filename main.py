@@ -5,6 +5,7 @@ from pathlib import Path
 from datetime import datetime
 import json
 from interaction import Interaction
+from config_utils import get_config
 
 # ensure logs directory exists
 log_dir = Path(__file__).resolve().parent / "logs"
@@ -24,15 +25,13 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-from dotenv import load_dotenv
 from team_brainstorm import BrainStormer
 from speaker import Speaker
 from debater import Debater
 
 
 async def main(motion: str) -> None:
-    load_dotenv()
-    logger.debug("Environment variables loaded")
+    logger.debug("Configuration loaded from config.json")
     logger.info(f"Starting debate with motion: {motion}")
     speaker = Speaker(motion)
     logger.debug("Speaker initialized")
@@ -85,7 +84,7 @@ async def main(motion: str) -> None:
         logger.info(f"{role} is delivering speech")
         speech = debater_obj.deliver_speech()
         try:
-            await interaction.tts(tone=os.getenv("debater_tone"), input=speech)
+            await interaction.tts(tone=get_config("debater_tone"), input=speech)
         except Exception as e:
             logger.error(f"TTS failed for {role}: {e}", exc_info=True)
         speech_log.append(speech)

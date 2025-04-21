@@ -2,9 +2,7 @@ import asyncio
 from openai import AsyncOpenAI, OpenAI
 from openai.helpers import LocalAudioPlayer
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
+from config_utils import get_config
 
 """
 This is a file for tts & stt to allow human and ai to interact.
@@ -15,8 +13,8 @@ Currently it only supports openai.
 
 
 class Interaction:
-    def __init__(self, service=os.getenv("INTERACTION_PROVIDER")):
-        self.service = service
+    def __init__(self, service=None):
+        self.service = service if service else get_config("INTERACTION_PROVIDER")
 
     async def tts(self, tone: str, input: str) -> None:
         if self.service == "openai":
@@ -32,7 +30,7 @@ class Interaction:
 
     async def openai_tts(self, tone: str, input: str) -> None:
         # For TTS
-        openai = AsyncOpenAI(api_key=os.getenv("INTERACTION_KEY"))
+        openai = AsyncOpenAI(api_key=os.environ.get("INTERACTION_KEY"))
         
         async with openai.audio.speech.with_streaming_response.create(
             model="gpt-4o-mini-tts",
@@ -45,7 +43,7 @@ class Interaction:
 
     def openai_stt(self, audio_file: str) -> str:
         # For STT
-        client = OpenAI(api_key=os.getenv("INTERACTION_KEY"))
+        client = OpenAI(api_key=os.environ.get("INTERACTION_KEY"))
         audio_file = open(audio_file, "rb")
         transcription = client.audio.transcriptions.create(
             model="gpt-4o-mini-transcribe", 

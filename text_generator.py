@@ -1,8 +1,6 @@
 from openai import OpenAI
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
+from config_utils import get_config
 
 """
 This file is for generating text responses of the speaker's and the debaters'.
@@ -18,8 +16,8 @@ TODO: Resturture to suit the response provider of team_brainstorm.py
 """
 
 class Responder:
-    def __init__(self, service: str = os.getenv("INDIVIDUAL_AI_PROVIDER")):
-        self.service = service
+    def __init__(self, service: str = None):
+        self.service = service if service else get_config("INDIVIDUAL_AI_PROVIDER")
 
     def respond_to(self,message: str) -> str:
         if self.service == "openai":
@@ -30,9 +28,9 @@ class Responder:
             raise ValueError("Invalid service")
 
     def openai_respond_to(self, message: str) -> str:
-        client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
         response = client.chat.completions.create(
-            model=os.getenv("INDIVIDUAL_AI_MODEL"),
+            model=get_config("INDIVIDUAL_AI_MODEL"),
             messages=[
                 {"role": "user", "content": message}
             ]
@@ -42,10 +40,10 @@ class Responder:
     def openrouter_respond_to(self, message: str) -> str:
         client = OpenAI(
             base_url="https://openrouter.ai/api/v1",
-            api_key=os.getenv("OPENROUTER_API_KEY"),
+            api_key=os.environ.get("OPENROUTER_API_KEY"),
         )
         response = client.chat.completions.create(
-            model=os.getenv("INDIVIDUAL_AI_MODEL"),
+            model=get_config("INDIVIDUAL_AI_MODEL"),
             messages=[
                 {"role": "user", "content": message}
             ]
