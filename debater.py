@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 import debater_speech_structure
 import asyncio
 from text_generator import Responder
+import json
 
-load_dotenv()
 
 """
 This file is to structure the final_prompt to be passed in the text generator.
