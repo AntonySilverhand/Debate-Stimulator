@@ -9,5 +9,16 @@
     "INDIVIDUAL_AI_PROVIDER": "openrouter",
     "INDIVIDUAL_AI_MODEL": "google/gemini-2.5-flash-preview:thinking",
 
-    "INTERACTION_PROVIDER": "openai"
+    "INTERACTION_PROVIDER": "openai",
+
+    "PARTY": {
+    "Prime Minister": "AI",
+    "Leader of Opposition": "AI",
+    "Deputy Prime Minister": "AI",
+    "Deputy Leader of Opposition": "AI",
+    "Member of Government": "AI",
+    "Member of Opposition": "AI",
+    "Government Whip": "AI",
+    "Opposition Whip": "AI"
+  }
 }

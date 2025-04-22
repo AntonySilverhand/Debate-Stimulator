@@ -69,24 +69,27 @@ async def main(motion: str) -> None:
 
     # initialize debaters
     debaters = [
-        ("Prime Minister", Debater(motion, "Prime Minister", speech_log, clue)),
-        ("Leader of Opposition", Debater(motion, "Leader of Opposition", speech_log, clue)),
-        ("Deputy Prime Minister", Debater(motion, "Deputy Prime Minister", speech_log, clue)),
-        ("Deputy Leader of Opposition", Debater(motion, "Deputy Leader of Opposition", speech_log, clue)),
-        ("Member of Government", Debater(motion, "Member of Government", speech_log, clue)),
-        ("Member of Opposition", Debater(motion, "Member of Opposition", speech_log, clue)),
-        ("Government Whip", Debater(motion, "Government Whip", speech_log, clue)),
-        ("Opposition Whip", Debater(motion, "Opposition Whip", speech_log, clue)),
+        ("Prime Minister", Debater(motion, "Prime Minister", speech_log, clue), config.get("PARTY")["Prime Minister"],
+        ("Leader of Opposition", Debater(motion, "Leader of Opposition", speech_log, clue), config.get("PARTY")["Leader of Opposition"]),
+        ("Deputy Prime Minister", Debater(motion, "Deputy Prime Minister", speech_log, clue), config.get("PARTY")["Deputy Prime Minister"]),
+            ("Deputy Leader of Opposition", Debater(motion, "Deputy Leader of Opposition", speech_log, clue), config.get("PARTY")["Deputy Leader of Opposition:]),
+        ("Member of Government", Debater(motion, "Member of Government", speech_log, clue), config.get("PARTY")["Member of Government"]),
+        ("Member of Opposition", Debater(motion, "Member of Opposition", speech_log, clue), config.get("PARTY")["Member of Opposition"]),
+        ("Government Whip", Debater(motion, "Government Whip", speech_log, clue), config.get("PARTY")["Government Whip"]),
+        ("Opposition Whip", Debater(motion, "Opposition Whip", speech_log, clue), config.get("PARTY")["Opposition Whip"]),
     ]
     # deliver speeches in order with logging
     for idx, (role, debater_obj) in enumerate(debaters):
         next_role = debaters[idx + 1][0] if idx + 1 < len(debaters) else None
         logger.info(f"{role} is delivering speech")
-        speech = debater_obj.deliver_speech()
-        try:
-            await interaction.tts(tone=get_config("debater_tone"), input=speech)
-        except Exception as e:
-            logger.error(f"TTS failed for {role}: {e}", exc_info=True)
+        if debater_obj[2] == "AI":
+            speech = debater_obj.deliver_speech()
+            try:
+                await interaction.tts(tone=get_config("debater_tone"), input=speech)
+            except Exception as e:
+                logger.error(f"TTS failed for {role}: {e}", exc_info=True)
+        else:
+        #TODO: Get humam input here.
         speech_log.append(speech)
         logger.debug(f"{role} speech generated, length={len(speech)}")
         logger.debug(f"{role} speech content:\n{speech}")
