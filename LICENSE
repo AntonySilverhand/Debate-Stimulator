@@ -1,0 +1,33 @@
+# Debate Stimulator - GNU Affero General Public License v3.0
+
+Copyright (c) 2025 AntonySilverhand
+
+## License Overview
+
+This software is licensed under the GNU Affero General Public License, version 3 (AGPL-3.0).
+
+The GNU Affero General Public License is a free, copyleft license designed specifically for network server software. It requires that the complete source code be made available to any network user of the AGPL-licensed work, typically a web application.
+
+## Key Points of AGPL-3.0
+
+- You may copy, distribute and modify the software as long as you track changes/dates in source files.
+- Any modifications to or software including (via compiler) GPL-licensed code must also be made available under the GPL along with build & install instructions.
+- Users who interact with the software via network are given the right to receive a copy of the source code.
+- You can use the software for commercial purposes.
+- You cannot sublicense the software.
+- You cannot hold the author liable.
+- If you distribute this software, you must provide the complete source code.
+
+## Attribution Requirement
+
+Any distribution of this software or derivative works should include attribution to the original author (AntonySilverhand).
+
+## Full License Text
+
+The complete text of the GNU Affero General Public License v3.0 can be found at: https://www.gnu.org/licenses/agpl-3.0.html
+
+A copy of the full license should be distributed along with this software. If not, see <https://www.gnu.org/licenses/>.
+
+## Notice
+
+By using, copying, modifying, or distributing this software, you agree to be bound by the terms of the GNU Affero General Public License v3.0. If you do not agree to these terms, you are not permitted to use this software.
