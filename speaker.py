@@ -36,6 +36,9 @@ class Speaker():
         text = "Thank you all for your speeches, please wait for the results."
         await self.interaction.tts(tone=self.speaker_tone, input=text)
 
+    def generate_rankings(speech_log: list) -> list:
+        text = f"{judge_prompt}\n\n Based on the previous speakers' debate: {speech_log} + \n\n + Please rank the performances of each team, from best to worst. Afterwards, please explain why you ranked them the way you did."
+        return self.responder.generate_response(text)
 
 if __name__ == "__main__":
     speaker = Speaker(motion="This house would legalize marijuana.")

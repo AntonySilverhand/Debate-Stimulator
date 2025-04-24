@@ -36,6 +36,10 @@ from speaker import Speaker
 from debater import Debater
 
 
+
+
+
+
 # --- Audio Recording Helper Function ---
 def record_and_save_audio(role: str, samplerate=44100) -> str | None:
     """Records audio from microphone and saves to a temporary WAV file."""
@@ -105,6 +109,42 @@ def record_and_save_audio(role: str, samplerate=44100) -> str | None:
         return None
  
  # --- End Audio Recording Helper ---
+
+
+
+
+
+
+
+def debate_history_saver(motion, speech_log):
+    history = {
+        "motion": motion,
+        "speech_log": speech_log
+    }
+    history_file_path = Path(__file__).resolve().parent / "debate_history" / f"{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    with history_file_path.open("w") as f:
+        json.dump(history, f, indent=4)
+    logger.debug(f"Debate history saved to {history_file_path}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 async def main(motion: str) -> None:
     logger.debug("Configuration loaded from config.json")
