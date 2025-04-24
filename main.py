@@ -34,6 +34,7 @@ logger = logging.getLogger(__name__)
 from team_brainstorm import BrainStormer
 from speaker import Speaker
 from debater import Debater
+from progress_tracker import get_tracker_instance
 
 
 
@@ -117,14 +118,21 @@ def record_and_save_audio(role: str, samplerate=44100) -> str | None:
 
 
 def debate_history_saver(motion, speech_log):
+    """Save debate history to a JSON file."""
+    # Ensure debate_history directory exists
+    history_dir = Path(__file__).resolve().parent / "debate_history"
+    history_dir.mkdir(exist_ok=True)
+    
     history = {
         "motion": motion,
         "speech_log": speech_log
     }
-    history_file_path = Path(__file__).resolve().parent / "debate_history" / f"{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    history_file_path = history_dir / f"{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    
     with history_file_path.open("w") as f:
         json.dump(history, f, indent=4)
     logger.debug(f"Debate history saved to {history_file_path}")
+    return history_file_path
 
 
 
@@ -246,6 +254,21 @@ async def main(motion: str) -> None:
     # serialize and log speech mapping as JSON
     speech_map = {role: speech for (role, _), speech in zip(debaters, speech_log)}
     logger.info(f"Speeches JSON: {json.dumps(speech_map, ensure_ascii=False)}")
+    
+    # Save debate history
+    history_path = debate_history_saver(motion, speech_log)
+    logger.info(f"Debate history saved to: {history_path}")
+    
+    # Get progress tracker and analyze
+    tracker = get_tracker_instance()
+    progress_analysis = tracker.analyze_progress()
+    logger.info(f"Progress analysis: {json.dumps(progress_analysis, ensure_ascii=False)}")
+    
+    print("\n=== Debate Progress Analysis ===")
+    print(f"Total debates completed: {progress_analysis.get('total_debates', 0)}")
+    print(f"Status: {progress_analysis.get('status', 'Unknown')}")
+    print(f"Recommendation: {progress_analysis.get('recommendation', 'No recommendations available')}")
+    print("================================\n")
 
 
 if __name__ == "__main__":
