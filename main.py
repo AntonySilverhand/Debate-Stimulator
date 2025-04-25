@@ -12,6 +12,10 @@ import queue
 import threading
 from interaction import Interaction
 from config_utils import get_config
+from team_brainstorm import BrainStormer
+from speaker import Speaker
+from debater import Debater
+from progress_tracker import get_tracker_instance
 
 # ensure logs directory exists
 log_dir = Path(__file__).resolve().parent / "logs"
@@ -30,14 +34,6 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger(__name__)
-
-from team_brainstorm import BrainStormer
-from speaker import Speaker
-from debater import Debater
-from progress_tracker import get_tracker_instance
-
-
-
 
 
 
@@ -113,11 +109,7 @@ def record_and_save_audio(role: str, samplerate=44100) -> str | None:
 
 
 
-
-
-
-
-def debate_history_saver(motion, speech_log):
+def debate_history_saver(motion, speech_log, speaker_info=None):
     """Save debate history to a JSON file."""
     # Ensure debate_history directory exists
     history_dir = Path(__file__).resolve().parent / "debate_history"
@@ -127,6 +119,11 @@ def debate_history_saver(motion, speech_log):
         "motion": motion,
         "speech_log": speech_log
     }
+    
+    # Add speaker info to history if provided
+    if speaker_info and len(speaker_info) == len(speech_log):
+        history["speaker_info"] = speaker_info
+    
     history_file_path = history_dir / f"{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
     
     with history_file_path.open("w") as f:
@@ -137,33 +134,32 @@ def debate_history_saver(motion, speech_log):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 async def main(motion: str) -> None:
     logger.debug("Configuration loaded from config.json")
     logger.info(f"Starting debate with motion: {motion}")
     speaker = Speaker(motion)
     logger.debug("Speaker initialized")
     speech_log = []
+    speaker_info = []  # Initialize list to track AI or human player information
     brainstormer = BrainStormer()
     logger.debug("BrainStormer initialized")
     interaction = Interaction()
     logger.debug("Interaction initialized")
+    
+    # Detect human players and collect nicknames
+    human_nicknames = {}
+    human_positions = [pos for pos, party in get_config("PARTY").items() if party == "Human"]
+    
+    if human_positions:
+        print("\n=== Human Players Detected ===")
+        print("Please enter nicknames for progress tracking:")
+        for position in human_positions:
+            nickname = input(f"Nickname for {position} (leave empty for 'Human'): ").strip()
+            if not nickname:
+                nickname = "Human"
+            human_nicknames[position] = nickname
+            logger.info(f"Human player '{nickname}' will play as {position}")
+        print("===============================\n")
 
     await speaker.announce_motion()
     logger.info("Motion announced")
@@ -206,14 +202,21 @@ async def main(motion: str) -> None:
     for idx, (role, debater_obj, party) in enumerate(debaters):
         next_role = debaters[idx + 1][0] if idx + 1 < len(debaters) else None
         logger.info(f"{role} is delivering speech")
+        
+        # Track speaker information (AI or human nickname)
         if party == "AI":
+            speaker_type = "AI"
             speech = debater_obj.deliver_speech()
+            speech_log.append(speech)
+            speaker_info.append({"role": role, "speaker": speaker_type})
             try:
                 await interaction.tts(tone=get_config("debater_tone"), input=speech)
             except Exception as e:
                 logger.error(f"TTS failed for {role}: {e}", exc_info=True)
         else:
-            logger.info(f"Waiting for human input from {role} via microphone.")
+            # Get the human nickname for this position
+            speaker_type = human_nicknames.get(role, "Human")
+            logger.info(f"Waiting for human input from {role} ({speaker_type}) via microphone.")
             temp_audio_file = await asyncio.to_thread(record_and_save_audio, role)
             speech = None
 
@@ -223,6 +226,7 @@ async def main(motion: str) -> None:
                     speech = await asyncio.to_thread(interaction.stt, audio_file=temp_audio_file)
                     if speech:
                         speech_log.append(speech)
+                        speaker_info.append({"role": role, "speaker": speaker_type})
                         logger.info(f"{role} speech captured via STT (length={len(speech)}). Content: {speech[:100]}...")
                     else:
                         logger.warning(f"STT returned empty result for {role}.")
@@ -238,11 +242,12 @@ async def main(motion: str) -> None:
 
             # Log the speech if captured, otherwise log absence
             if speech:
-                logger.debug(f"{role} speech delivered by human, length={len(speech)}")
+                logger.debug(f"{role} speech delivered by {speaker_type}, length={len(speech)}")
                 logger.debug(f"{role} speech content:\n{speech}")
             else:
                 logger.debug(f"{role} speech skipped (no audio or STT failed). Adding empty entry to log.")
                 speech_log.append("") # Add empty string if speech failed
+                speaker_info.append({"role": role, "speaker": speaker_type})
 
         if next_role:
             logger.info(f"Announcing next speaker: {role} -> {next_role}")
@@ -251,24 +256,18 @@ async def main(motion: str) -> None:
     await speaker.announce_end()
     # snapshot all local variables at end of main
     logger.debug(f"Final local variables: {locals()}")
-    # serialize and log speech mapping as JSON
-    speech_map = {role: speech for (role, _), speech in zip(debaters, speech_log)}
+    # serialize and log speech mapping as JSON with speaker information
+    speech_map = {}
+    for idx, ((role, _, _), speech) in enumerate(zip(debaters, speech_log)):
+        speaker = speaker_info[idx]["speaker"] if idx < len(speaker_info) else "Unknown"
+        speech_map[role] = {"content": speech, "speaker": speaker}
     logger.info(f"Speeches JSON: {json.dumps(speech_map, ensure_ascii=False)}")
     
-    # Save debate history
-    history_path = debate_history_saver(motion, speech_log)
+    # Save debate history with speaker information
+    history_path = debate_history_saver(motion, speech_log, speaker_info)
     logger.info(f"Debate history saved to: {history_path}")
     
-    # Get progress tracker and analyze
-    tracker = get_tracker_instance()
-    progress_analysis = tracker.analyze_progress()
-    logger.info(f"Progress analysis: {json.dumps(progress_analysis, ensure_ascii=False)}")
-    
-    print("\n=== Debate Progress Analysis ===")
-    print(f"Total debates completed: {progress_analysis.get('total_debates', 0)}")
-    print(f"Status: {progress_analysis.get('status', 'Unknown')}")
-    print(f"Recommendation: {progress_analysis.get('recommendation', 'No recommendations available')}")
-    print("================================\n")
+
 
 
 if __name__ == "__main__":
