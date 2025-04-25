@@ -1,6 +1,6 @@
 import asyncio
-from text_generator import Responder
-from interaction import Interaction
+from utilities.text_generator import Responder
+from utilities.interaction import Interaction
 from config_utils import get_config
 
 

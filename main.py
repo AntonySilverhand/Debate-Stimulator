@@ -10,12 +10,12 @@ import tempfile
 import numpy as np
 import queue
 import threading
-from interaction import Interaction
+from utilities.interaction import Interaction
 from config_utils import get_config
-from team_brainstorm import BrainStormer
-from speaker import Speaker
-from debater import Debater
-from progress_tracker import get_tracker_instance
+from debater.team_brainstorm import BrainStormer
+from speaker.speaker import Speaker
+from debater.debater import Debater
+from speaker.progress_tracker import get_tracker_instance
 
 # ensure logs directory exists
 log_dir = Path(__file__).resolve().parent / "logs"

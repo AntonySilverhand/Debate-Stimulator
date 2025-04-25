@@ -1,6 +1,6 @@
 from openai import OpenAI
 import os
-from text_generator import Responder
+from utilities.text_generator import Responder
 from config_utils import get_config
 
 """
