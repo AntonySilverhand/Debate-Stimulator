@@ -270,6 +270,23 @@ async def main(motion: str) -> None:
 
 
 
+def run_debate():
+    """Entry point for the debate-simulator command-line tool."""
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Debate Stimulator - Practice British Parliamentary debate with AI opponents")
+    parser.add_argument("motion", nargs="?", default="This house would legalize marijuana.", 
+                     help="The debate motion to discuss")
+    args = parser.parse_args()
+    
+    try:
+        asyncio.run(main(args.motion))
+    except KeyboardInterrupt:
+        print("\nDebate session interrupted by user. Exiting...")
+    except Exception as e:
+        logger.error(f"Error running debate: {e}", exc_info=True)
+        print(f"\nAn error occurred: {e}")
+        print("Check the logs for more details.")
+
 if __name__ == "__main__":
-    motion = "This house would legalize marijuana."
-    asyncio.run(main(motion))
+    run_debate()
