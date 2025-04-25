@@ -13,7 +13,7 @@ import sys
 # Add parent directory to path to allow importing modules
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from progress_tracker import ProgressTracker
+from speaker.progress_tracker import ProgressTracker
 
 class TestProgressTracker(unittest.TestCase):
     """Test cases for ProgressTracker class."""

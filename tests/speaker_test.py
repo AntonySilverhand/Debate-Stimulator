@@ -1,4 +1,4 @@
-
+import asyncio
 
 speaker_with_prompt = [
     ["Prime Minister", ["speech_structure.prime_minister_speech, debater_tone"]],

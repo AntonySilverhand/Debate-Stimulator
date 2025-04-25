@@ -1,9 +1,9 @@
 from openai import OpenAI, AsyncOpenAI
 from openai.helpers import LocalAudioPlayer
 import os
-import debater_speech_structure
+from debater import debater_speech_structure
 import asyncio
-from text_generator import Responder
+from utilities.text_generator import Responder
 import json
 from config_utils import get_config
 

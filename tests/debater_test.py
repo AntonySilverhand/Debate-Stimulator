@@ -1,3 +1,3 @@
-import debater
+from debater import debater
 
 
